@@ -1,0 +1,78 @@
+.topBar_mainContainer {
+  width: 100%;
+  height: 30px;
+  background-color: var(--bs-btn-bg);
+  padding: var(--bs-layout-padding);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* top bar left side start */
+.topBar_leftSide {
+  display: flex;
+}
+
+.topBar_toolNumber {
+  color: var(--bs-white-color);
+  font-weight: var(--bs-font-weight500);
+  padding: var(--bs-side-padding);
+  font-size: var(--bs-font-size14);
+  font-family: var(--bs-font-family);
+}
+
+.topBar_pageLinks {
+  padding: var(--bs-side-padding);
+  font-family: var(--bs-font-family);
+  color: var(--bs-link-font-color);
+  font-weight: var(--bs-font-weight400);
+  cursor: pointer;
+  font-size: var(--bs-font-size14);
+}
+
+.topBar_linkStyle {
+  text-decoration: none;
+  font-family: var(--bs-font-family);
+  color: var(--bs-link-font-color);
+  font-weight: var(--bs-font-weight400);
+  font-size: var(--bs-font-size14);
+}
+
+.topBar_linkStyle:hover {
+  color: #fff;
+  transition: color 0.12s;
+}
+
+/* Top bar left side End */
+/* Top bar Right side Start  */
+.topBar_RightSide {
+  color: #fff;
+}
+
+.topBar_RightSide {
+  display: flex;
+}
+
+.toBar_iconBox {
+  padding: var(--bs-side-padding);
+  font-weight: var(--bs-font-weight400);
+  color: #fff;
+}
+
+.topBar_iconLinkStyle {
+  color: #fff;
+  text-decoration: none;
+  align-items: center;
+  text-align: center;
+}
+
+/* Table Screen View */
+@media screen and (max-width: 992px) {
+}
+
+/* Mobile Screen View */
+@media screen and (max-width: 650px) {
+  .topBar_mainContainer {
+    display: none;
+  }
+}

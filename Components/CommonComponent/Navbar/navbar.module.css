@@ -1,0 +1,180 @@
+.Navbar_mainContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  color: var(--bs-text-color);
+  background: #fff;
+  -webkit-box-shadow: var(--bs-webkit-box-shadow);
+  box-shadow: var(--bs-navbar-box-shadow);
+  height: 80px;
+  font-family: var(--bs-font-family);
+  padding: var(--bs-layout-padding);
+  position: relative;
+}
+
+.hangburgBox {
+  display: none;
+}
+
+.Navbar_logoBox {
+  min-width: 230px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 24px;
+}
+
+.logo_imageStyle {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.searchBox {
+  flex-grow: 1;
+}
+.Navbar_userInfoBox {
+  width: 200px;
+  margin-left: 50px;
+}
+
+.mobile_searchIcon {
+  display: none;
+}
+
+.mobile_searchBox {
+  position: absolute;
+  top: -50px;
+  visibility: visible;
+  transition: top 0.2s ease-in-out;
+  opacity: 0;
+}
+
+.logedInBox {
+  display: flex;
+  cursor: pointer;
+}
+
+.iconBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  font-size: 45px;
+}
+
+.loginInfo {
+  padding: 5px;
+}
+.loginInfo span {
+  font-size: 12px;
+}
+
+.isLogin_mobileView {
+  display: none;
+}
+
+/* Table Screen View */
+@media screen and (max-width: 992px) {
+  .hangburgBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+  }
+  .Navbar_logoBox {
+    min-width: 100px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 14px;
+  }
+
+  .searchBox {
+    display: none;
+  }
+  .Navbar_userInfoBox {
+    display: none;
+  }
+
+  .mobile_searchIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .isLogin_mobileView {
+    display: flex;
+    font-size: 18px;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    cursor: pointer;
+  }
+}
+
+/* Mobile Screen View */
+@media screen and (max-width: 650px) {
+  .Navbar_mainContainer {
+    padding: 5px;
+    height: 50px;
+    justify-content: space-around;
+  }
+  .hangburgBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .Navbar_logoBox {
+    min-width: 200px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+  }
+  .searchBox {
+    display: none;
+  }
+
+  .Navbar_userInfoBox {
+    display: none;
+  }
+
+  .mobile_searchIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mobile_searchBox {
+    position: absolute;
+    top: 10px;
+    visibility: visible;
+    transition: top 0.2s ease-in-out;
+    opacity: 1;
+    background-color: #fff;
+  }
+
+  .closeMobileSearch {
+    position: absolute;
+    top: -50px;
+    visibility: hidden;
+    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out,
+      top 0.2s ease-in-out;
+    opacity: 0;
+  }
+
+  .isLogin_mobileView {
+    display: flex;
+    font-size: 18px;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    cursor: pointer;
+  }
+}

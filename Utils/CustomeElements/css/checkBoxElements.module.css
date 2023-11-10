@@ -1,0 +1,56 @@
+.radio_wraperContainer {
+  border: 1px solid green;
+  margin: 10px;
+  width: 300px;
+  box-sizing: border-box;
+}
+
+/*****************************
+***** single CHECK BOC DESIGN-1 
+*******************************/
+.customCheckbox {
+  display: flex;
+  cursor: pointer;
+  border: 1px solid green;
+  justify-content: space-between;
+}
+
+.checkboxInput {
+  display: none;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #0074d9;
+  border-radius: 4px;
+  position: relative;
+}
+
+.checkbox::after {
+  content: ""; /* Checkmark Unicode character */
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  font-size: 18px;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.2s;
+  color: #009688;
+}
+
+.checked {
+  border: 2px solid #009688; /* Your desired border color when checked */
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4); /* Add shadow when checked */
+  color: #009688;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkBox_optionLable {
+  color: gray;
+}
+.cheked_optionLable {
+  color: #009688;
+}

@@ -1,0 +1,21 @@
+.largebtn {
+  border: none;
+  background: #1a79ff;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 10px 40px;
+  cursor: pointer;
+  font-size: 18px;
+  font-family: var(--bs-font-family);
+}
+
+.smallbtn {
+  border: none;
+  background: #1a79ff;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 5px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bs-font-family);
+}
