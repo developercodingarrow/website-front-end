@@ -9,7 +9,8 @@ import { TiArrowUnsorted } from "react-icons/ti";
 import { HiMagnifyingGlass, HiOutlineBuildingOffice } from "react-icons/hi2";
 import { BiCategoryAlt } from "react-icons/bi";
 import { PiUserCirclePlusThin, PiUserCircleMinusThin } from "react-icons/pi";
-
+import { LuIndianRupee } from "react-icons/lu";
+import { BsFillArrowRightCircleFill } from "react-icons/bs";
 export {
   AiOutlineInstagram,
   AiOutlineFacebook,
@@ -23,5 +24,7 @@ export {
   AiOutlineClose,
   PiUserCirclePlusThin,
   PiUserCircleMinusThin,
+  LuIndianRupee,
+  BsFillArrowRightCircleFill,
   // Add more icons as needed
 };

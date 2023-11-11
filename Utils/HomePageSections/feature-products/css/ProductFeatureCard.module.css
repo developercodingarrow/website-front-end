@@ -1,0 +1,100 @@
+.card_mainContainer {
+  width: 274px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.09);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.09);
+  padding: 0px 0px 10px 0px;
+}
+
+.card_imageBox {
+  height: 254px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image_link {
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imageStyle {
+  width: 245px;
+  height: 245px;
+}
+
+.card_contentBox {
+  /* -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.09);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.09); */
+}
+
+.card_title {
+  padding: 0px 16px;
+}
+
+.carName_linkstyle {
+  text-decoration: none;
+  color: #212529;
+}
+
+.carName_linkstyle:hover {
+  color: #007bff;
+}
+
+.card_location {
+  padding: 5px 16px;
+  display: flex;
+}
+
+.carSate_linkstyle,
+.carCity_linkstyle {
+  text-decoration: none;
+  color: #212529;
+  padding: 3px 7px 3px 0px;
+  font-size: 14px;
+}
+
+.card_ActionBox {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 16px;
+  margin-top: 20px;
+}
+
+.card_priceBox {
+  display: flex;
+
+  font-size: 14px;
+}
+
+.priceIconBox {
+  display: flex;
+  align-items: center;
+}
+
+.card_price {
+  padding: 0px 1px;
+}
+
+.arrow_iconBox {
+  cursor: pointer;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrowStyle {
+}
+
+.arrowStyle:hover {
+  color: #007bff;
+  font-size: 25px;
+}

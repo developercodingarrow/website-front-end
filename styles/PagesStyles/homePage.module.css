@@ -15,6 +15,12 @@
   background-color: #fafafa;
 }
 
+.feature_products_Section {
+  margin: 20px 0px;
+  padding: var(--bs-layout-padding);
+  background-color: #fafafa;
+}
+
 @media screen and (max-width: 992px) {
   .carosole_section {
     height: 300px;

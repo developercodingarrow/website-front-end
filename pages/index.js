@@ -1,6 +1,7 @@
 import CommonLayout from "../Components/Layouts/CommonLayouts/CommonLayout";
 import HomePageCarosoleElement from "../Utils/ComponentsParts/HomePageCarosole/HomePageCarosoleElement";
 import PopulaerCategoriesSection from "../Utils/HomePageSections/Popular-Categorie-section/PopulaerCategoriesSection";
+import ProductsFeatureSection from "../Utils/HomePageSections/feature-products/ProductsFeatureSection";
 import styles from "../styles/PagesStyles/homePage.module.css";
 
 export default function Page() {
@@ -13,6 +14,9 @@ export default function Page() {
           </div>
           <div className={styles.Popular_categoriesSection}>
             <PopulaerCategoriesSection />
+          </div>
+          <div className={styles.feature_products_Section}>
+            <ProductsFeatureSection />
           </div>
         </div>
       </CommonLayout>

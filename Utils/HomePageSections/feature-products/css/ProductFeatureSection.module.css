@@ -1,0 +1,32 @@
+.ProductsFeatureSection_main_container {
+  padding-top: 50px;
+}
+
+.section_header {
+  border-bottom: 1px solid gray;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 5px;
+  text-transform: capitalize;
+}
+
+.section_header p {
+  padding: 5px 20px;
+  background-color: black;
+  color: #fff;
+  clip-path: polygon(10% 0, 100% 0%, 90% 100%, 0% 100%);
+  cursor: pointer;
+}
+
+.PopulaerCategoriesSection_cardContainer {
+  padding: 20px 5px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card_container {
+  padding: 20px 5px;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 15px;
+}
