@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "../css/checkBoxElements.module.css";
 
 export function CheckBoxElementsForSingle(props) {
-  const { chekBoxStatus, handleCheckboxChange } = props;
+  const { chekBoxStatus, handleCheckboxChange, checkBoxLable } = props;
 
   const handleCheckbox = () => {
     handleCheckboxChange();
@@ -27,13 +27,15 @@ export function CheckBoxElementsForSingle(props) {
               <span className={styles.checkmark}>&#10003;</span>
             )}
           </div>
-          <div
-            className={`${styles.checkBox_optionLable} ${
-              chekBoxStatus ? styles.cheked_optionLable : ""
-            }`}
-          >
-            option 1
-          </div>
+          {checkBoxLable && (
+            <div
+              className={`${styles.checkBox_optionLable} ${
+                chekBoxStatus ? styles.cheked_optionLable : ""
+              }`}
+            >
+              {checkBoxLable}
+            </div>
+          )}
         </label>
       </div>
     </>

@@ -1,0 +1,182 @@
+.table_mainContainer {
+  width: 100%;
+  padding-bottom: 10px;
+}
+
+.table_container {
+  margin-top: 10px;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px,
+    rgb(209, 213, 219) 0px 0px 0px 1px inset;
+  max-width: 100%;
+  position: relative;
+  overflow-x: auto;
+}
+
+.table_header {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  text-transform: uppercase;
+  border-bottom: 1px solid gainsboro;
+  background-color: #fff;
+  z-index: 10;
+  position: sticky;
+  width: 100%;
+  top: 0;
+}
+
+.sNo_th {
+  width: 50px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* height: 100%; */
+}
+
+.checkBox_th {
+  width: 50px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.main_Title_th {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0px 5px;
+  width: 200px;
+  flex-grow: 1;
+}
+
+.status_th {
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  width: 100px;
+}
+
+.radio_th {
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+}
+
+.button_th {
+  display: flex;
+  padding: 5px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.Iconbutton_th {
+  padding: 5px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.table_body {
+  padding: 10px 0px;
+  height: 300px;
+}
+
+.table_row {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  font-weight: 300;
+  text-transform: uppercase;
+  border-bottom: 1px solid gainsboro;
+}
+
+.table_footer {
+  background-color: #fff;
+  height: 50px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding: 0px 20px;
+  column-gap: 20px;
+}
+
+.page_prRowBox {
+  width: 22%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pagination_Box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 20%;
+  height: 100%;
+}
+
+.pagination_ArrowBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 50px;
+  cursor: pointer;
+}
+
+/* Table fillter */
+.table_fillter_bar {
+  width: 100%;
+  min-height: 50px;
+  padding: 10px 0px;
+  background-color: #fff;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+
+.search_Conatiner {
+  display: flex;
+  column-gap: 10px;
+  justify-content: space-between;
+}
+
+.searchBox {
+  padding: 5px;
+  background-color: #fff;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.search_input {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc; /* Graceful border */
+  border-radius: 4px; /* Rounded edges */
+  font-size: 16px;
+  box-sizing: border-box; /* Padding doesn't affect width */
+  outline: none; /* Removes default input focus outline */
+  font-size: 14px;
+
+  /* Transition for smooth effect */
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.search_input:focus {
+  border-color: #aaa; /* Graceful focus color */
+  box-shadow: 0 0 5px rgba(147, 175, 204, 0.5);
+}
+
+.sort_box {
+  display: flex;
+  column-gap: 10px;
+}

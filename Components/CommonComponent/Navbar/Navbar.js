@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import style from "./navbar.module.css";
 import { navBarPageLink } from "../../../JsonData/PageLinks";
 import Link from "next/link";
@@ -12,10 +12,12 @@ import {
   PiUserCircleMinusThin,
 } from "../../../Utils/ApplicationIcon";
 import Buttons from "../../../Utils/CustomeElements/Html Element/Buttons";
+import { AppContext } from "../../../Context Api/AppContextApi";
 
 export default function Navbar() {
-  const [openMobileSearch, setopenMobileSearch] = useState(true);
+  const [openMobileSearch, setopenMobileSearch] = useState(false);
   const [isLogin, setisLogin] = useState(false);
+  const { handelAppDrawer } = useContext(AppContext);
 
   const handelTrigerMobileSearch = () => {
     setopenMobileSearch(!openMobileSearch);
@@ -28,7 +30,7 @@ export default function Navbar() {
   return (
     <div className={style.Navbar_mainContainer}>
       <div className={style.hangburgBox}>
-        <FaBars />
+        <FaBars onClick={handelAppDrawer} />
       </div>
       <div className={style.Navbar_logoBox}>
         <Image

@@ -1,3 +1,5 @@
+import { AiOutlineDashboard } from "../Utils/ApplicationIcon";
+
 export const topBarPageLink = [
   {
     Page: "About us",
@@ -29,5 +31,44 @@ export const navBarPageLink = [
   {
     Page: "Blog",
     hrfURL: "/",
+  },
+];
+
+export const asidebarOptions = [
+  {
+    name: "Dashboard",
+    iconComponent: AiOutlineDashboard, // Use the imported component
+    link: "/",
+  },
+  {
+    name: "Products",
+    iconComponent: AiOutlineDashboard, // Use the imported component
+    link: "/",
+  },
+  {
+    name: "Blog",
+    iconComponent: AiOutlineDashboard, // Use the imported component
+    link: "/",
+  },
+
+  {
+    name: "Enquires",
+    iconComponent: AiOutlineDashboard, // Use the imported component
+    link: "/",
+  },
+];
+
+export const asidefooterLink = [
+  {
+    name: "About Us",
+    link: "/",
+  },
+  {
+    name: "Contact Us",
+    link: "/",
+  },
+  {
+    name: "Privacy Policy",
+    link: "/",
   },
 ];

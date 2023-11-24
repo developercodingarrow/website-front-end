@@ -10,12 +10,19 @@
   text-transform: capitalize;
 }
 
-.section_header p {
-  padding: 5px 20px;
-  background-color: black;
+.navidation_arrowBox {
+  display: flex;
+}
+
+.navidation_arrowBox span {
+  padding: 10px 10px 0px 10px;
+  background-color: #007bff;
   color: #fff;
-  clip-path: polygon(10% 0, 100% 0%, 90% 100%, 0% 100%);
+  clip-path: polygon(22% 42%, 94% 40%, 75% 100%, 0% 100%);
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .PopulaerCategoriesSection_cardContainer {
@@ -29,4 +36,5 @@
   display: flex;
   flex-wrap: wrap;
   column-gap: 15px;
+  row-gap: 15px;
 }

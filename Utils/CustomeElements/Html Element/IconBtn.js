@@ -1,7 +1,8 @@
 import React from "react";
 import styles from "../css/buttons.module.css";
+import { MdDelete } from "../../ApplicationIcon";
 
-export default function Buttons(props) {
+export default function IconBtn(props) {
   const { text, buttonstyle, btnColor, btnSze, btnAction } = props;
 
   const buttonClasses = `${styles[buttonstyle]} ${styles[btnColor]} ${styles[btnSze]}`;
@@ -9,7 +10,7 @@ export default function Buttons(props) {
     <>
       <div>
         <button className={buttonClasses} onClick={btnAction}>
-          {text}
+          <MdDelete />
         </button>
       </div>
     </>

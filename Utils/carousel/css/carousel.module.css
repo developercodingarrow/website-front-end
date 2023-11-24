@@ -1,0 +1,27 @@
+.carouselContainer {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin: 20px 0;
+  width: 100%;
+}
+
+.productsWrapper {
+  display: flex;
+  transition: transform 0.5s ease;
+  column-gap: 10px;
+}
+
+.button {
+  margin: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.button:first-child {
+  margin-right: 10px;
+}
+
+.button:last-child {
+  margin-left: 10px;
+}

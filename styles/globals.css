@@ -31,4 +31,5 @@ html {
   --bs-font-weight500: 500;
   --bs-navbar-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.09);
   --bs-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.09);
+  --Zero-border: 1px solid #e5e7eb;
 }

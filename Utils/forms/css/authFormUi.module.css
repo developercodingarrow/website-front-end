@@ -1,0 +1,46 @@
+.AuthFormUi_mainContainer {
+  border: 1px solid red;
+  width: 100%;
+  height: 740px;
+  display: flex;
+}
+
+.AuthFormUi_bannerSide,
+.AuthFormUi_formSide {
+  width: 50%;
+  height: 100%;
+  border: 1px solid gray;
+}
+
+.sideBannerImage {
+  width: 100%;
+  height: 100%;
+}
+
+.AuthFormUi_formSide {
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+}
+
+.AuthFormUi_formContainer {
+  padding: 44px 42px;
+}
+
+.form_heading_Details {
+  font-family: var(--bs-font-family);
+
+  text-align: center;
+}
+
+.form_heading {
+  font-family: var(--bs-font-family);
+  font-weight: 400;
+  margin-bottom: 12px;
+  font-size: 24px;
+  color: #0f172a;
+}
+
+.formDescreption {
+  color: #64748b;
+}

@@ -1,9 +1,9 @@
-.radio_wraperContainer {
+/* .radio_wraperContainer {
   border: 1px solid green;
   margin: 10px;
   width: 300px;
   box-sizing: border-box;
-}
+} */
 
 /*****************************
 ***** single CHECK BOC DESIGN-1 
@@ -11,8 +11,11 @@
 .customCheckbox {
   display: flex;
   cursor: pointer;
-  border: 1px solid green;
   justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  column-gap: 5px;
 }
 
 .checkboxInput {
