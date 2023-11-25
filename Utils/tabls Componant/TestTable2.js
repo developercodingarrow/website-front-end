@@ -5,7 +5,8 @@ import SwitchBtn from "../CustomeElements/Html Element/SwitchBtn";
 import Buttons from "../CustomeElements/Html Element/Buttons";
 import IconBtn from "../CustomeElements/Html Element/IconBtn";
 import { IoIosArrowBack, IoIosArrowForward } from "../ApplicationIcon";
-import usePagination from "../../custome-hooks/usePagination";
+import useTableFillters from "../../custome-hooks/useTableFillters";
+import { paginate } from "../../Utils/Component-logics/paginationFunctions";
 
 const rowNumber = [
   {
@@ -83,54 +84,36 @@ const rowNumber = [
   },
 ];
 
-export default function TestTable() {
+export default function TestTable2() {
   const {
-    currentPage,
-    rowsPerPage,
-    visibleRows: paginatedRows,
-    handleRowsPerPageChange,
-    prevPage,
+    visibalRows,
     nextPage,
+    prevPage,
+    rowsPerPage,
+    handleRowsPerPageChangeWrapper,
+    totalRows,
     startIndex,
     endIndex,
-    totalRows,
-    handleSearch,
-    visibleRows,
-    handleSort,
+    currentPage,
+    sortDataByDate,
+    filterDataByUsername,
+    updateVisibleRows,
+    filterByDate,
     startDate,
     endDate,
-    handleDateFilter,
     handleStartDateChange,
     handleEndDateChange,
-    updateVisibleRows,
-    searchTerm,
-    sortedRows,
-    rowCount,
-  } = usePagination(rowNumber);
-  const [isChecked, setIsChecked] = useState(true);
+  } = useTableFillters(rowNumber);
 
-  const handleSelectChange = (e) => {
-    const selectedValue = e.target.value;
-    if (selectedValue === "Recent") {
-      handleSort();
-    } else if (selectedValue === "old") {
-      handleSort();
-    }
+  const handleApplyDateRange = () => {
+    // Call the filter function with the selected date range
+    filterByDate(startDate, endDate);
   };
 
-  // Call the updateVisibleRows function when necessary dependencies change
   useEffect(() => {
     updateVisibleRows();
-  }, [searchTerm, sortedRows, currentPage, rowsPerPage]);
-
-  const handleCheckboxChange = () => {
-    setIsChecked(!isChecked);
-    console.log(isChecked);
-  };
-
-  const handelbtnAction = () => {
-    alert("ok");
-  };
+    console.log("useEffect");
+  }, [currentPage, rowsPerPage]);
 
   return (
     <>
@@ -138,53 +121,35 @@ export default function TestTable() {
         <div className={styles.table_fillter_bar}>
           <div>
             <div className={styles.sort_box}>
-              <select onChange={handleSelectChange}>
-                <option value="Recent">Recent</option>
+              <select onChange={(e) => sortDataByDate(e.target.value)}>
                 <option value="old">Old</option>
+                <option value="new">New</option>
               </select>
             </div>
             <div>
               <input
                 type="date"
-                value={startDate}
-                onChange={(e) => handleStartDateChange(e.target.value)}
                 placeholder="Start Date"
+                value={startDate}
+                onChange={handleStartDateChange}
               />
               <input
                 type="date"
-                value={endDate}
-                onChange={(e) => handleEndDateChange(e.target.value)}
                 placeholder="End Date"
+                value={endDate}
+                onChange={handleEndDateChange}
               />
-              <button onClick={handleDateFilter}>Apply Date Range</button>
+              <button onClick={handleApplyDateRange}>Apply Date Range</button>
             </div>
-            <div>{rowCount}</div>
+            <div>row count</div>
           </div>
           <div className={styles.search_Conatiner}>
             <div className={styles.searchBox}>
               <input
                 type="text"
                 placeholder="search user"
-                onChange={handleSearch}
                 className={styles.search_input}
-              />
-            </div>
-
-            <div className={styles.searchBox}>
-              <input
-                type="text"
-                placeholder="search email"
-                onChange={handleSearch}
-                className={styles.search_input}
-              />
-            </div>
-
-            <div className={styles.searchBox}>
-              <input
-                type="text"
-                placeholder="search mobile "
-                onChange={handleSearch}
-                className={styles.search_input}
+                onChange={(e) => filterDataByUsername(e.target.value)}
               />
             </div>
           </div>
@@ -193,10 +158,7 @@ export default function TestTable() {
           <div className={styles.table_header}>
             <div className={styles.sNo_th}>S No</div>
             <div className={styles.checkBox_th}>
-              <CheckBoxElementsForSingle
-                chekBoxStatus={isChecked}
-                handleCheckboxChange={handleCheckboxChange}
-              />
+              <input type="text" />
             </div>
             <div className={styles.main_Title_th}>User Name</div>
             <div className={styles.status_th}>Status</div>
@@ -205,39 +167,21 @@ export default function TestTable() {
             <div className={styles.Iconbutton_th}>Icon</div>
           </div>
           <div className={styles.table_body}>
-            {visibleRows.map((el, i) => {
+            {visibalRows.map((el, i) => {
               return (
                 <div className={styles.table_row}>
                   <div className={styles.sNo_th}>{i + 1}</div>
                   <div className={styles.checkBox_th}>
-                    <CheckBoxElementsForSingle
-                      chekBoxStatus={isChecked}
-                      handleCheckboxChange={handleCheckboxChange}
-                    />
+                    <input type="checkbox" />
                   </div>
                   <div className={styles.main_Title_th}>{el.username}</div>
-                  <div className={styles.status_th}>
-                    {" "}
-                    <SwitchBtn />
-                  </div>
+                  <div className={styles.status_th}> switch btn</div>
                   <div className={styles.radio_th}>Radio</div>
                   <div className={styles.button_th}>
-                    <Buttons
-                      text={"Edit"}
-                      buttonstyle={"button"}
-                      btnColor={"primaryBtnColor"}
-                      btnSze={"smallbtn"}
-                      btnAction={handelbtnAction}
-                    />
+                    <button>hello</button>
                   </div>
                   <div className={styles.Iconbutton_th}>
-                    <IconBtn
-                      text={"Edit"}
-                      buttonstyle={"button"}
-                      btnColor={"primaryBtnColor"}
-                      btnSze={"smallbtn"}
-                      btnAction={handelbtnAction}
-                    />
+                    <button>icon</button>
                   </div>
                 </div>
               );
@@ -248,15 +192,18 @@ export default function TestTable() {
           <div className={styles.page_prRowBox}>
             <span>Rows Per Page</span>
             <span>
-              <select value={rowsPerPage} onChange={handleRowsPerPageChange}>
+              <select
+                value={rowsPerPage}
+                onChange={handleRowsPerPageChangeWrapper}
+              >
+                <option value={3}>3</option>
                 <option value={5}>5</option>
                 <option value={10}>10</option>
-                <option value={20}>20</option>
               </select>
             </span>
           </div>
           <div className={styles.pagination_Box}>
-            <div>{`${startIndex}-${endIndex} of ${totalRows}`}</div>
+            <div> {`${startIndex}-${endIndex} of ${totalRows}`}</div>
             <div className={styles.pagination_ArrowBox}>
               <span onClick={prevPage}>
                 {" "}

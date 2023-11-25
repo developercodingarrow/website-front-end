@@ -7,8 +7,45 @@ const usePagination = (initialRows, initialRowsPerPage = 5) => {
   const [searchResults, setSearchResults] = useState([]);
   const [sortType, setSortType] = useState(null); // Track sorting type
 
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  const [visibleRows, setvisibleRows] = useState([]);
+
   const totalRows = initialRows.length;
 
+  const handleStartDateChange = (date) => {
+    setStartDate(date);
+    console.log(startDate);
+  };
+
+  const handleEndDateChange = (date) => {
+    setEndDate(date);
+    console.log(endDate);
+  };
+
+  const filterByDateRange = (rows) => {
+    if (!startDate || !endDate) {
+      return rows;
+    }
+
+    return rows.filter((row) => {
+      const rowDate = new Date(row.date);
+      const start = new Date(startDate);
+      const end = new Date(endDate);
+
+      return rowDate >= start && rowDate <= end;
+    });
+  };
+
+  const handleDateFilter = () => {
+    // Apply Date Range filter logic here
+    const filteredRows = filterByDateRange(initialRows);
+    console.log(filteredRows);
+    setCurrentPage(1); // Reset to the first page after filtering
+    setvisibleRows(filteredRows);
+  };
+
+  // Sort data recent old by date
   const sortRowsByDate = (rows, type) => {
     return [...rows].sort((a, b) => {
       if (type === "asc") {
@@ -20,6 +57,16 @@ const usePagination = (initialRows, initialRowsPerPage = 5) => {
     });
   };
 
+  const handleSort = () => {
+    if (!sortType || sortType === "desc") {
+      setSortType("asc");
+    } else {
+      setSortType("desc");
+    }
+    setCurrentPage(1); // Reset to the first page after sorting
+    updateVisibleRows(); // Update visible rows after sorting
+  };
+
   // Handel Search By user
   const handleSearch = (e) => {
     const term = e.target.value;
@@ -28,33 +75,23 @@ const usePagination = (initialRows, initialRowsPerPage = 5) => {
     const filteredUsers = initialRows.filter((user) =>
       user.username.toLowerCase().includes(term.toLowerCase())
     );
-    setSearchResults(filteredUsers);
+    setvisibleRows(filteredUsers);
     setCurrentPage(1); // Reset to the first page after search
   };
 
-  const handleSort = () => {
-    if (!sortType || sortType === "desc") {
-      setSortType("asc");
-    } else {
-      setSortType("desc");
+  const updateVisibleRows = () => {
+    let rowsToDisplay = searchTerm ? searchResults : initialRows;
+
+    // Apply sorting
+    if (sortType) {
+      rowsToDisplay = sortRowsByDate(rowsToDisplay, sortType);
     }
-    setCurrentPage(1); // Reset to the first page after sorting
+    const updatedVisibleRows = rowsToDisplay.slice(
+      (currentPage - 1) * rowsPerPage,
+      currentPage * rowsPerPage
+    );
+    setvisibleRows(updatedVisibleRows);
   };
-
-  let sortedRows = initialRows;
-  if (sortType) {
-    sortedRows = sortRowsByDate(initialRows, sortType);
-  }
-
-  const visibleRows = searchTerm
-    ? searchResults.slice(
-        (currentPage - 1) * rowsPerPage,
-        currentPage * rowsPerPage
-      )
-    : sortedRows.slice(
-        (currentPage - 1) * rowsPerPage,
-        currentPage * rowsPerPage
-      );
 
   const handleRowsPerPageChange = (e) => {
     const selectedRowsPerPage = Number(e.target.value);
@@ -78,6 +115,8 @@ const usePagination = (initialRows, initialRowsPerPage = 5) => {
   const startIndex = (currentPage - 1) * rowsPerPage + 1;
   const endIndex = Math.min(startIndex + rowsPerPage - 1, totalRows);
 
+  const rowCount = visibleRows.length;
+
   return {
     currentPage,
     rowsPerPage,
@@ -90,6 +129,13 @@ const usePagination = (initialRows, initialRowsPerPage = 5) => {
     totalRows,
     handleSearch,
     handleSort,
+    startDate,
+    endDate,
+    handleDateFilter,
+    handleStartDateChange,
+    handleEndDateChange,
+    updateVisibleRows,
+    rowCount,
   };
 };
 
