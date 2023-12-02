@@ -19,6 +19,7 @@ import {
   IoIosArrowForward,
 } from "react-icons/io";
 import { MdDelete } from "react-icons/md";
+import { CiEdit } from "react-icons/ci";
 
 export {
   IoIosArrowBack,
@@ -41,5 +42,6 @@ export {
   BsFillArrowRightCircleFill,
   IoMdArrowDropright,
   IoMdArrowDropleft,
+  CiEdit,
   // Add more icons as needed
 };

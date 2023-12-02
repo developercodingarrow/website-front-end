@@ -144,39 +144,49 @@
     rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 }
 
+.fillter_topBar {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+}
+
 .search_Conatiner {
   display: flex;
   column-gap: 10px;
   justify-content: space-between;
 }
 
-.searchBox {
-  padding: 5px;
-  background-color: #fff;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
-    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-}
-
-.search_input {
-  width: 100%;
-  padding: 5px;
-  border: 1px solid #ccc; /* Graceful border */
-  border-radius: 4px; /* Rounded edges */
-  font-size: 16px;
-  box-sizing: border-box; /* Padding doesn't affect width */
-  outline: none; /* Removes default input focus outline */
-  font-size: 14px;
-
-  /* Transition for smooth effect */
-  transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-.search_input:focus {
-  border-color: #aaa; /* Graceful focus color */
-  box-shadow: 0 0 5px rgba(147, 175, 204, 0.5);
-}
+/* sort button  */
 
 .sort_box {
-  display: flex;
-  column-gap: 10px;
+  display: inline-block;
+  width: 100px;
+}
+
+.selectButton {
+  appearance: none;
+  padding: 3px;
+  font-size: 16px;
+  border: 2px solid #3498db;
+  /* border-radius: 3px; */
+  width: 100px;
+  background-color: white;
+  color: #333;
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.selectButton:focus {
+  outline: none;
+  border-color: #2980b9;
+  box-shadow: 0 0 5px #2980b9;
+}
+
+/* Style the dropdown arrow */
+
+.options_style {
+  background-color: white;
+  color: #333;
+  border-radius: 0px;
 }

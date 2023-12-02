@@ -1,0 +1,25 @@
+.searchBox {
+  width: 100%;
+  padding: 7px 7px;
+  background-color: #fff;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+    rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+}
+
+.search_input {
+  width: 100%;
+  padding: 5px;
+  border: var(--tb-fillter-primary-border);
+  border-radius: 3px; /* Rounded edges */
+  font-size: 16px;
+  box-sizing: border-box; /* Padding doesn't affect width */
+  outline: none; /* Removes default input focus outline */
+  font-size: 14px;
+  /* Transition for smooth effect */
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.search_input:focus {
+  border-color: var(--tb-fillter-primary-focus-border-color);
+  box-shadow: var(--tb-fillter-primary-focus-box-shadow);
+}

@@ -1,0 +1,22 @@
+.dateInput_container {
+  position: relative;
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+  margin: 10px 0px;
+}
+
+.input {
+  appearance: none;
+  padding: 5px;
+  font-size: 16px;
+  border: var(--tb-fillter-primary-border);
+  border-radius: 5px;
+  width: 150px;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--tb-fillter-primary-focus-border-color);
+  box-shadow: var(--tb-fillter-primary-focus-box-shadow);
+}

@@ -7,6 +7,9 @@ import IconBtn from "../CustomeElements/Html Element/IconBtn";
 import { IoIosArrowBack, IoIosArrowForward } from "../ApplicationIcon";
 import useTableFillters from "../../custome-hooks/useTableFillters";
 import { paginate } from "../../Utils/Component-logics/paginationFunctions";
+import SimpleSortBtn from "./sortBtns/SimpleSortBtn";
+import SimpleDateRange from "./DateRanges/SimpleDateRange";
+import SimpleTableSearch from "./TableSearch/SimpleTableSearch";
 
 const rowNumber = [
   {
@@ -85,6 +88,8 @@ const rowNumber = [
 ];
 
 export default function TestTable2() {
+  const [isChecked, setIsChecked] = useState(true);
+
   const {
     visibalRows,
     nextPage,
@@ -115,43 +120,32 @@ export default function TestTable2() {
     console.log("useEffect");
   }, [currentPage, rowsPerPage]);
 
+  const handleCheckboxChange = () => {
+    setIsChecked(!isChecked);
+    console.log(isChecked);
+  };
+
   return (
     <>
       <div className={styles.table_mainContainer}>
         <div className={styles.table_fillter_bar}>
-          <div>
+          <div className={styles.fillter_topBar}>
             <div className={styles.sort_box}>
-              <select onChange={(e) => sortDataByDate(e.target.value)}>
-                <option value="old">Old</option>
-                <option value="new">New</option>
-              </select>
+              <SimpleSortBtn handelSelectSort={sortDataByDate} />
             </div>
-            <div>
-              <input
-                type="date"
-                placeholder="Start Date"
-                value={startDate}
-                onChange={handleStartDateChange}
+            <div className={styles.dateInput}>
+              <SimpleDateRange
+                startDateValue={startDate}
+                endDateValue={endDate}
+                handelStartDate={handleStartDateChange}
+                handelEndDate={handleEndDateChange}
+                handelBtn={handleApplyDateRange}
               />
-              <input
-                type="date"
-                placeholder="End Date"
-                value={endDate}
-                onChange={handleEndDateChange}
-              />
-              <button onClick={handleApplyDateRange}>Apply Date Range</button>
             </div>
             <div>row count</div>
           </div>
           <div className={styles.search_Conatiner}>
-            <div className={styles.searchBox}>
-              <input
-                type="text"
-                placeholder="search user"
-                className={styles.search_input}
-                onChange={(e) => filterDataByUsername(e.target.value)}
-              />
-            </div>
+            <SimpleTableSearch handelsearchBy={filterDataByUsername} />
           </div>
         </div>
         <div className={styles.table_container}>
@@ -172,16 +166,34 @@ export default function TestTable2() {
                 <div className={styles.table_row}>
                   <div className={styles.sNo_th}>{i + 1}</div>
                   <div className={styles.checkBox_th}>
-                    <input type="checkbox" />
+                    <CheckBoxElementsForSingle
+                      chekBoxStatus={isChecked}
+                      handleCheckboxChange={handleCheckboxChange}
+                    />
                   </div>
                   <div className={styles.main_Title_th}>{el.username}</div>
-                  <div className={styles.status_th}> switch btn</div>
+                  <div className={styles.status_th}>
+                    {" "}
+                    <SwitchBtn />{" "}
+                  </div>
                   <div className={styles.radio_th}>Radio</div>
                   <div className={styles.button_th}>
-                    <button>hello</button>
+                    <Buttons
+                      text={"check"}
+                      buttonstyle={"smallbtn"}
+                      btnColor={"seconderyBtnColor"}
+                      btnSze={"smallbtn"}
+                      btnAction={handleApplyDateRange}
+                    />
                   </div>
                   <div className={styles.Iconbutton_th}>
-                    <button>icon</button>
+                    <IconBtn
+                      icontype={"deleteIcon"}
+                      buttonstyle={"smallbtn"}
+                      btnColor={"seconderyBtnColor"}
+                      btnSze={"smallbtn"}
+                      btnAction={handleApplyDateRange}
+                    />
                   </div>
                 </div>
               );
