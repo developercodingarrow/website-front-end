@@ -1,11 +1,17 @@
 import React, { useState } from "react";
 import styles from "../css/switchbtn.module.css";
 
-export default function SwitchBtn({ initialPosition }) {
-  const [isOn, setIsOn] = useState(initialPosition === "on");
+export default function SwitchBtn(props) {
+  const { status, handelApi, dataId } = props;
+
+  console.log(dataId);
+
+  const [isOn, setIsOn] = useState(status);
 
   const toggleSwitch = () => {
+    const requestData = { _id: dataId };
     setIsOn(!isOn);
+    handelApi(requestData);
   };
   return (
     <div>

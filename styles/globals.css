@@ -38,3 +38,19 @@ html {
 }
 
 /* Reusable class for focus styles */
+.primaryInput {
+  color: #262626;
+  background-color: #ededed;
+  border: 1px solid #ededed;
+  outline: none;
+  width: 100%;
+
+  border-radius: 0.2em;
+  border: 1px solid lightgray;
+}
+
+.error_Msg {
+  color: red;
+  font-size: 12px;
+  margin: 5px 0px;
+}

@@ -1,0 +1,40 @@
+/* dynimicTable.module.css */
+
+.table_container {
+  background-color: gray;
+  overflow: auto;
+  max-width: 100%;
+}
+
+.table_wrapper {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tableHeader {
+  border: 2px solid red;
+  background-color: red;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.tableTr {
+  border: 1px solid red;
+}
+
+.table_body {
+  border: 3px solid black;
+}
+
+/* Adjust padding for both th and td */
+.table th,
+.table td {
+  padding: 8px;
+  border: 1px solid green;
+  text-align: center;
+}

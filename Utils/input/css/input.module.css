@@ -1,0 +1,19 @@
+.primary_pading {
+  padding: 7px 10px;
+}
+
+.flexContainer {
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+}
+
+.blockContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+}
+
+.lable_Box {
+  margin-bottom: 7px;
+}

@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import styles from "../css/checkBoxElements.module.css";
 
 export function CheckBoxElementsForSingle(props) {
-  const { chekBoxStatus, handleCheckboxChange, checkBoxLable } = props;
+  const { chekBoxStatus, handleCheckboxChange, checkBoxLable, dataId } = props;
 
   const handleCheckbox = () => {
     handleCheckboxChange();
-    console.log(chekBoxStatus);
+    console.log("checkboxstatus", chekBoxStatus);
   };
   return (
     <>
