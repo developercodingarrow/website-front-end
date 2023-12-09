@@ -4,9 +4,12 @@ import Image from "next/image";
 import sideBanner from "../../public/website-images/sideBanner.jpg";
 import Input from "../input/Input";
 import { useForm, Controller } from "react-hook-form";
+import Buttons from "../CustomeElements/Html Element/Buttons";
+import SubmitBtn from "../CustomeElements/Html Element/SubmitBtn";
+import CustomeLink from "../customeLinks/CustomeLink";
 
 export default function AuthFormUi(props) {
-  const { formTitle, customInputs } = props;
+  const { formTitle, customInputs, btntext, formType, formdescreption } = props;
   const {
     handleSubmit,
     formState: { errors, isValid },
@@ -73,66 +76,82 @@ export default function AuthFormUi(props) {
 
   return (
     <>
-      <div className={styles.AuthFormUi_mainContainer}>
-        <div className={styles.AuthFormUi_bannerSide}>
-          <Image
-            src={sideBanner}
-            alt="side banner"
-            width={900}
-            height={900}
-            className={styles.sideBannerImage}
-          />
+      <div className={styles.AuthFormUi_formContainer}>
+        <div className={styles.form_heading_Details}>
+          <h4 className={styles.form_heading}>{formTitle}</h4>
+          <p className={styles.formDescreption}>{formdescreption}</p>
         </div>
-        <div className={styles.AuthFormUi_formSide}>
-          <div className={styles.AuthFormUi_formContainer}>
-            <div className={styles.form_heading_Details}>
-              <h4 className={styles.form_heading}>{formTitle}</h4>
-              <p className={styles.formDescreption}>
-                Create an account to start using Dashcode
-              </p>
-            </div>
-            <div>
-              <form onSubmit={handleSubmit(handleFormSubmit)}>
-                {inputsToRender.map((input, i) => {
-                  return (
-                    <div>
-                      <Controller
-                        name={input.name}
-                        control={control}
-                        defaultValue=""
-                        rules={input.validation}
-                        render={({ field }) => (
-                          <>
-                            <Input
-                              key={input.id}
-                              {...input}
-                              {...field}
-                              inputDesign={"primaryInput"}
-                              inputPadding={"primary_pading"}
-                              inputContainer={"blockContainer"}
-                            />
-                            {errors[input.name] && (
-                              <p className={"error_Msg"}>
-                                {errors[input.name].message}
-                              </p>
-                            )}
-                          </>
-                        )}
-                      />
-                    </div>
-                  );
-                })}
-
+        <div>
+          <form onSubmit={handleSubmit(handleFormSubmit)}>
+            {inputsToRender.map((input, i) => {
+              return (
                 <div>
-                  <button type="submit" disabled={!isValid}>
-                    {" "}
-                    Register
-                  </button>
+                  <Controller
+                    name={input.name}
+                    control={control}
+                    defaultValue=""
+                    rules={input.validation}
+                    render={({ field }) => (
+                      <>
+                        <Input
+                          key={input.id}
+                          {...input}
+                          {...field}
+                          inputDesign={"primaryInput"}
+                          inputPadding={"primary_pading"}
+                          inputContainer={"blockContainer"}
+                        />
+                        {errors[input.name] && (
+                          <p className={"error_Msg"}>
+                            {errors[input.name].message}
+                          </p>
+                        )}
+                      </>
+                    )}
+                  />
                 </div>
-              </form>
+              );
+            })}
+
+            {formType === "LOGIN" && (
+              <div className={styles.forgote_Password}>
+                <CustomeLink
+                  reDirectPath="/sign-up"
+                  text="forgate password"
+                  linkStyle="linkStyle"
+                  linkColor="linkColor"
+                  linkSze="linkSize"
+                />
+              </div>
+            )}
+
+            <div className={styles.btnBox}>
+              <SubmitBtn
+                text={btntext}
+                buttonstyle="smallbtn"
+                btnColor="primaryBtnColor"
+                btnSze="smallbtn"
+                disabled={!isValid}
+              />
             </div>
-          </div>
+          </form>
         </div>
+        {formType === "SINGUP" && (
+          <div className={styles.singup_linkBox}>
+            {/* Content to show when formType is SINGUP */}
+            <span>Don't have an account ? </span>{" "}
+            <span>
+              {" "}
+              <CustomeLink
+                reDirectPath="/login"
+                text="SignUp"
+                linkStyle="linkStyle"
+                linkColor="linkColor"
+                linkSze="linkSize"
+              />{" "}
+            </span>
+          </div>
+        )}
       </div>
     </>
   );

@@ -1,35 +1,6 @@
-.AuthFormUi_mainContainer {
-  border: 1px solid red;
-  width: 100%;
-  height: 740px;
-  display: flex;
-}
-
-.AuthFormUi_bannerSide,
-.AuthFormUi_formSide {
-  width: 50%;
-  height: 100%;
-  border: 1px solid gray;
-}
-
-.sideBannerImage {
-  width: 100%;
-  height: 100%;
-}
-
-.AuthFormUi_formSide {
-  background-color: #fff;
-  display: flex;
-  justify-content: center;
-}
-
-.AuthFormUi_formContainer {
-  padding: 44px 42px;
-}
-
 .form_heading_Details {
   font-family: var(--bs-font-family);
-
+  margin-bottom: 20px;
   text-align: center;
 }
 
@@ -43,4 +14,19 @@
 
 .formDescreption {
   color: #64748b;
+}
+
+.btnBox {
+  margin-bottom: 20px;
+}
+
+.forgote_Password {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.singup_linkBox {
+  display: flex;
+  justify-content: center;
 }
