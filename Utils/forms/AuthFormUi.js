@@ -1,15 +1,21 @@
 import React from "react";
+import { useRouter } from "next/router";
 import styles from "./css/authFormUi.module.css";
-import Image from "next/image";
-import sideBanner from "../../public/website-images/sideBanner.jpg";
 import Input from "../input/Input";
 import { useForm, Controller } from "react-hook-form";
-import Buttons from "../CustomeElements/Html Element/Buttons";
 import SubmitBtn from "../CustomeElements/Html Element/SubmitBtn";
 import CustomeLink from "../customeLinks/CustomeLink";
 
 export default function AuthFormUi(props) {
-  const { formTitle, customInputs, btntext, formType, formdescreption } = props;
+  const router = useRouter();
+  const {
+    formTitle,
+    customInputs,
+    btntext,
+    formType,
+    formdescreption,
+    handelForm,
+  } = props;
   const {
     handleSubmit,
     formState: { errors, isValid },
@@ -46,6 +52,16 @@ export default function AuthFormUi(props) {
     },
     {
       id: 3,
+      name: "mobileNumber",
+      type: "text",
+      placeholder: "Enter Your Mobile Number",
+      lable: "mobile Number",
+      validation: {
+        required: "mobile Number is required.",
+      },
+    },
+    {
+      id: 4,
       name: "password",
       type: "text",
       placeholder: "password",
@@ -55,8 +71,8 @@ export default function AuthFormUi(props) {
       },
     },
     {
-      id: 4,
-      name: "Confirmpassword",
+      id: 5,
+      name: "passwordConfirm",
       type: "text",
       placeholder: "Confirm password",
       lable: "Confirm password",
@@ -70,8 +86,18 @@ export default function AuthFormUi(props) {
 
   const inputsToRender = customInputs ? customInputs : SignUpInputs;
 
-  const handleFormSubmit = (data) => {
-    alert("Form submitted with data: " + JSON.stringify(data));
+  const handleFormSubmit = async (data) => {
+    try {
+      const result = await handelForm(data);
+      console.log(result.data);
+      if (result.data.apiFor === "register") {
+        router.push(`/verify-otp/${result.data.UrlToken}`);
+      } else if (result.data.apiFor === "opt-verification") {
+        alert("otp verificatiob");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -116,7 +142,7 @@ export default function AuthFormUi(props) {
             {formType === "LOGIN" && (
               <div className={styles.forgote_Password}>
                 <CustomeLink
-                  reDirectPath="/sign-up"
+                  reDirectPath="/forgot-password"
                   text="forgate password"
                   linkStyle="linkStyle"
                   linkColor="linkColor"

@@ -46,8 +46,9 @@ export const SignUpInputs = [
       },
     },
   },
+
   {
-    id: 3,
+    id: 4,
     name: "password",
     type: "text",
     placeholder: "password",
@@ -57,7 +58,7 @@ export const SignUpInputs = [
     },
   },
   {
-    id: 4,
+    id: 5,
     name: "Confirmpassword",
     type: "text",
     placeholder: "Confirm password",
@@ -66,6 +67,19 @@ export const SignUpInputs = [
       required: "Confirm Password is required.",
       validate: (value) =>
         value === watch("password") || "Passwords do not match.",
+    },
+  },
+];
+
+export const forgotePasswordInputs = [
+  {
+    id: 1,
+    name: "email",
+    type: "text",
+    placeholder: "email",
+    lable: "email",
+    validation: {
+      required: "Email is required.",
     },
   },
 ];

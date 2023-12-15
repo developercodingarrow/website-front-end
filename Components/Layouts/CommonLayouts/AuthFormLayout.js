@@ -3,7 +3,7 @@ import styles from "./css/authFormLayout.module.css";
 import Image from "next/image";
 import sideBanner from "../../../public/website-images/sideBanner.jpg";
 
-export default function AuthFormLayout({ children, formTitle }) {
+export default function AuthFormLayout({ children, bootomUi }) {
   return (
     <>
       <div className={styles.AuthFormUi_mainContainer}>
@@ -18,6 +18,8 @@ export default function AuthFormLayout({ children, formTitle }) {
         </div>
         <div className={styles.AuthFormUi_formSide}>
           <div className={styles.AuthFormUi_formContainer}>{children}</div>
+
+          <div>{bootomUi}</div>
         </div>
       </div>
     </>

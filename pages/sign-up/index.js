@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import AuthFormUi from "../../Utils/forms/AuthFormUi";
-import { loginInputs } from "../../JsonData/authFormFiled";
 import AuthFormLayout from "../../Components/Layouts/CommonLayouts/AuthFormLayout";
+import { AuthContext } from "../../Context Api/AuthContextApi";
 
-export default function SignUp() {
+export default function SignUpPage() {
+  const { handelCreateNewUser } = useContext(AuthContext);
   return (
     <>
       <AuthFormLayout formTitle="Login">
@@ -12,6 +13,7 @@ export default function SignUp() {
           btntext="REGISTER"
           formType="SINGUP"
           formdescreption="Create an account to start using Dashcode"
+          handelForm={handelCreateNewUser}
         />
       </AuthFormLayout>
     </>
