@@ -1,4 +1,5 @@
 import React from "react";
+import { useRouter } from "next/router";
 import styles from "./css/authform.module.css";
 import AuthFormTopLayout from "./AuthFormTopLayout";
 import Input from "../../Utils/input/Input";
@@ -6,7 +7,11 @@ import { Controller, useForm } from "react-hook-form";
 import SubmitBtn from "../../Utils/CustomeElements/Html Element/SubmitBtn";
 
 export default function VerificationUI(props) {
-  const { formTitle, formdescreption, btntext, customInputs } = props;
+  const router = useRouter();
+  const { UrlToken } = router.query;
+  console.log(UrlToken);
+  const { formTitle, formdescreption, btntext, customInputs, handelForm } =
+    props;
 
   const {
     handleSubmit,
@@ -18,7 +23,12 @@ export default function VerificationUI(props) {
   });
 
   const handleFormSubmit = async (data) => {
-    console.log(data);
+    try {
+      const result = await handelForm(data, UrlToken);
+      console.log(result);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -30,7 +40,7 @@ export default function VerificationUI(props) {
         <form onSubmit={handleSubmit(handleFormSubmit)}>
           {customInputs.map((input, i) => {
             return (
-              <div>
+              <div key={i}>
                 <Controller
                   name={input.name}
                   control={control}

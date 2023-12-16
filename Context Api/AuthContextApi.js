@@ -18,9 +18,10 @@ export default function AuthContextApiProvider({ children }) {
     }
   };
 
-  const handelverifyOtp = async (data) => {
+  const handelverifyOtp = async (data, UrlToken) => {
     try {
-      const response = await verifyOtp(data);
+      console.log(data);
+      const response = await verifyOtp(data, UrlToken);
       return response;
     } catch (error) {
       console.log(error);

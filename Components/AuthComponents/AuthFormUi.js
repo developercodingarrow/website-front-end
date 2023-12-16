@@ -93,8 +93,8 @@ export default function AuthFormUi(props) {
       console.log(result.data);
       if (result.data.apiFor === "register") {
         router.push(`/verify-otp/${result.data.UrlToken}`);
-      } else if (result.data.apiFor === "opt-verification") {
-        alert("otp verificatiob");
+      } else if (result.data.apiFor === "Login") {
+        router.push("/user-dashboard");
       }
     } catch (error) {
       console.log(error);

@@ -8,7 +8,7 @@ export const createNewUser = async (requestData) => {
 };
 
 export const verifyOtp = async (requestData, token) => {
-  const url = `http://localhost:8000/api/v1/first-website/user//verify-otp/${token}`;
+  const url = `http://localhost:8000/api/v1/first-website/user/verify-otp/${token}`;
   const method = "post";
   return performAPIAction(method, url, requestData);
 };
