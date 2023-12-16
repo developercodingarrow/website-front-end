@@ -1,7 +1,7 @@
 import React from "react";
-import AuthFormUi from "../../Utils/forms/AuthFormUi";
+import AuthFormUi from "../../Components/AuthComponents/AuthFormUi";
 import { loginInputs } from "../../JsonData/authFormFiled";
-import AuthFormLayout from "../../Components/Layouts/CommonLayouts/AuthFormLayout";
+import AuthFormLayout from "../../Components/AuthComponents/AuthFormLayout";
 export default function LoginPage() {
   return (
     <>

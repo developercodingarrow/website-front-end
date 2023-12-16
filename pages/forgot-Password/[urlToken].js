@@ -1,18 +1,18 @@
 import React, { useContext } from "react";
 import AuthFormLayout from "../../Components/AuthComponents/AuthFormLayout";
-import { otpVerifation } from "../../JsonData/authFormFiled";
+import { forgotePasswordInputs } from "../../JsonData/authFormFiled";
 import { AuthContext } from "../../Context Api/AuthContextApi";
 import VerificationUI from "../../Components/AuthComponents/VerificationUI";
-export default function OtpVerification() {
+export default function ForgotePassword() {
   const { handelverifyOtp } = useContext(AuthContext);
   return (
     <>
       <AuthFormLayout bootomUi="forgatePassword">
         <VerificationUI
-          formTitle={"verify OTP"}
-          btntext="SEND OTP"
-          formType="SINGUP"
-          customInputs={otpVerifation}
+          formTitle={"FORGOTE PASSWORD"}
+          btntext="SEND EMAIL"
+          formType="forgote-password"
+          customInputs={forgotePasswordInputs}
           formdescreption="Enter your Register E-mail Address and send tour Otp for Reset your password"
           handelForm={handelverifyOtp}
         />

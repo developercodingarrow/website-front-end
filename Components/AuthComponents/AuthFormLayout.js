@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./css/authFormLayout.module.css";
 import Image from "next/image";
-import sideBanner from "../../../public/website-images/sideBanner.jpg";
+import sideBanner from "../../public/website-images/sideBanner.jpg";
 
 export default function AuthFormLayout({ children, bootomUi }) {
   return (

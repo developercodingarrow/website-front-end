@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import AuthFormUi from "../../Utils/forms/AuthFormUi";
-import AuthFormLayout from "../../Components/Layouts/CommonLayouts/AuthFormLayout";
+import AuthFormUi from "../../Components/AuthComponents/AuthFormUi";
+import AuthFormLayout from "../../Components/AuthComponents/AuthFormLayout";
 import { AuthContext } from "../../Context Api/AuthContextApi";
 
 export default function SignUpPage() {
