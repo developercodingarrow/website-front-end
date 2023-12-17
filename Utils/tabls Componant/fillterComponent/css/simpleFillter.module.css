@@ -1,0 +1,15 @@
+.main_Container {
+  box-shadow: var(--mui-table-container-shadow);
+  padding: 10px;
+}
+
+.search_Boxwrapper {
+  flex-grow: 1;
+}
+
+.search_FiledBox {
+  display: flex;
+  column-gap: 10px;
+  row-gap: 10px;
+  justify-content: space-between;
+}

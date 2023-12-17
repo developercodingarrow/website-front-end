@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
   goToNextPage,
   goToPreviousPage,
@@ -8,10 +8,12 @@ import {
 import { sortByDate } from "../Utils/Component-logics/sortingFunctions";
 import { filterByUsername } from "../Utils/Component-logics/filteringFunctions";
 import { filterByDateRange } from "../Utils/Component-logics/dateRangeFilter";
+import { FillterContext } from "../Context Api/FillterContext";
 
 export default function useTableFillters(initialRows, initialRowsPerPage = 3) {
+  const { visibalRows, setvisibalRows } = useContext(FillterContext);
   const totalRows = initialRows.length;
-  const [visibalRows, setvisibalRows] = useState([]);
+  // const [visibalRows, setvisibalRows] = useState([]);
   const [rowsPerPage, setrowsPerPage] = useState(initialRowsPerPage);
   const [currentPage, setcurrentPage] = useState(1);
   const [startDate, setStartDate] = useState("");
@@ -49,8 +51,8 @@ export default function useTableFillters(initialRows, initialRowsPerPage = 3) {
   };
 
   // Function to filter data by username
-  const filterDataByUsername = (searchTerm) => {
-    const filteredData = filterByUsername(initialRows, searchTerm);
+  const filterDataByUsername = (searchTerm, field) => {
+    const filteredData = filterByUsername(initialRows, searchTerm, field);
     updateVisibleRows(filteredData);
   };
 

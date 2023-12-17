@@ -9,10 +9,12 @@
 .input {
   appearance: none;
   padding: 5px;
-  font-size: 16px;
-  border: var(--tb-fillter-primary-border);
+  font-size: 14px;
+  border: var(--mui-border);
   border-radius: 5px;
-  width: 150px;
+  width: 120px;
+  background-color: var(--primary-bg);
+  cursor: pointer;
 }
 
 .input:focus {

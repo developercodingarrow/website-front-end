@@ -1,6 +1,7 @@
 export const newUserColumn = [
   { label: "S No", key: "_id", component: "number" },
-  { label: "User Name", key: "name", component: "text" },
+  { label: "Date", key: "date", component: "text" },
+  { label: "User Name", key: "username", component: "text" },
   { label: "E-mail", key: "email", component: "text" },
   { label: "Mobile Number", key: "mobileNumber", component: "text" },
 ];
@@ -57,10 +58,18 @@ export const newUserColumn = [
 //   },
 // ];
 
+// export const sampleData = Array.from({ length: 100 }, (_, index) => ({
+//   _id: (index + 1).toString(),
+//   username: "sanjay",
+//   email: "sanjay@gmail.com",
+//   mobileNumber: "9992118210",
+//   date: "20-12-2023",
+// }));
+
 export const sampleData = Array.from({ length: 100 }, (_, index) => ({
   _id: (index + 1).toString(),
-  name: "sanjay",
-  email: "sanjay@gmail.com",
+  username: `user${index + 1}`,
+  email: `user${index + 1}@example.com`,
   mobileNumber: "9992118210",
-  date: "20-12-2023",
+  date: `2${(index % 9) + 1}-12-2023`, // Varying the day part of the date
 }));

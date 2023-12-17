@@ -27,7 +27,7 @@ export default function SimpleDateRange(props) {
         className={styles.input}
       />
       <Buttons
-        text={"Apply Date Range"}
+        text={"Apply"}
         buttonstyle={"button"}
         btnColor={"primaryBtnColor"}
         btnSze={"smallbtn"}

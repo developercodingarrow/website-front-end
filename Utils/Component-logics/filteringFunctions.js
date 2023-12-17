@@ -1,6 +1,6 @@
-export const filterByUsername = (data, searchTerm) => {
+export const filterByUsername = (data, searchTerm, field) => {
   const filteredData = data.filter((item) =>
-    item.username.toLowerCase().includes(searchTerm.toLowerCase())
+    item[field].toLowerCase().includes(searchTerm.toLowerCase())
   );
   return filteredData;
 };

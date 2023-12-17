@@ -12,6 +12,7 @@ export default function DynamicTable(props) {
     handleCheckboxChange,
     handelbtnAction,
     handelSwitch,
+    visibalRows,
   } = props;
 
   const handlers = {
@@ -22,7 +23,7 @@ export default function DynamicTable(props) {
   };
 
   const {
-    visibalRows,
+    // visibalRows,
     totalRows,
     startIndex,
     endIndex,
@@ -34,7 +35,6 @@ export default function DynamicTable(props) {
 
   useEffect(() => {
     updateVisibleRows();
-    console.log("useEffect");
   }, [currentPage, rowsPerPage]);
 
   return (
@@ -94,7 +94,6 @@ export default function DynamicTable(props) {
 
 // Helper function to render cell content based on component type
 const renderCellContent = (data, id, componentType, handler) => {
-  console.log(data);
   switch (componentType) {
     case "text":
       return data;
