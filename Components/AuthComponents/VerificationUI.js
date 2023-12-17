@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useRouter } from "next/router";
 import styles from "./css/authform.module.css";
 import AuthFormTopLayout from "./AuthFormTopLayout";
 import Input from "../../Utils/input/Input";
 import { Controller, useForm } from "react-hook-form";
 import SubmitBtn from "../../Utils/CustomeElements/Html Element/SubmitBtn";
+import { AuthContext } from "../../Context Api/AuthContextApi";
 
 export default function VerificationUI(props) {
+  const { loading, setloading } = useContext(AuthContext);
   const router = useRouter();
   const { UrlToken } = router.query;
   console.log(UrlToken);
@@ -19,14 +21,17 @@ export default function VerificationUI(props) {
     control,
     watch,
   } = useForm({
-    mode: "all", // Use "onChange" mode for real-time validation as the user types
+    mode: "all",
   });
 
   const handleFormSubmit = async (data) => {
     try {
+      setloading(true);
       const result = await handelForm(data, UrlToken);
       console.log(result);
+      setloading(false);
     } catch (error) {
+      setloading(false);
       console.log(error);
     }
   };
@@ -75,6 +80,7 @@ export default function VerificationUI(props) {
               btnColor="primaryBtnColor"
               btnSze="smallbtn"
               disabled={!isValid}
+              loading={loading}
             />
           </div>
         </form>

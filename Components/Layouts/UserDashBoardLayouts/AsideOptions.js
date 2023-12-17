@@ -10,7 +10,7 @@ export default function AsideOptions() {
       <div className={styles.options_tabContainer}>
         {asidebarOptions.map((el, i) => {
           return (
-            <Link href={"/"} className={styles.options_Tab}>
+            <Link href={el.link} className={styles.options_Tab}>
               <div className={styles.option_Tab_iconBox}>
                 {" "}
                 {React.createElement(el.iconComponent)}

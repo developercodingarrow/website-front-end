@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useRouter } from "next/router";
 import styles from "./css/authform.module.css";
 import Input from "../../Utils/input/Input";
@@ -6,9 +6,11 @@ import { useForm, Controller } from "react-hook-form";
 import SubmitBtn from "../../Utils/CustomeElements/Html Element/SubmitBtn";
 import CustomeLink from "../../Utils/customeLinks/CustomeLink";
 import AuthFormTopLayout from "./AuthFormTopLayout";
+import { AuthContext } from "../../Context Api/AuthContextApi";
 
 export default function AuthFormUi(props) {
   const router = useRouter();
+  const { loading, setloading } = useContext(AuthContext);
   const {
     formTitle,
     customInputs,
@@ -17,6 +19,7 @@ export default function AuthFormUi(props) {
     formdescreption,
     handelForm,
   } = props;
+
   const {
     handleSubmit,
     formState: { errors, isValid },
@@ -89,14 +92,18 @@ export default function AuthFormUi(props) {
 
   const handleFormSubmit = async (data) => {
     try {
+      setloading(true);
       const result = await handelForm(data);
       console.log(result.data);
       if (result.data.apiFor === "register") {
         router.push(`/verify-otp/${result.data.UrlToken}`);
+        setloading(false);
       } else if (result.data.apiFor === "Login") {
         router.push("/user-dashboard");
+        setloading(false);
       }
     } catch (error) {
+      setloading(false);
       console.log(error);
     }
   };
@@ -157,6 +164,7 @@ export default function AuthFormUi(props) {
               btnColor="primaryBtnColor"
               btnSze="smallbtn"
               disabled={!isValid}
+              loading={loading}
             />
           </div>
         </form>

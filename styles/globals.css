@@ -35,6 +35,8 @@ html {
   --tb-fillter-primary-border: 2px solid #3498db;
   --tb-fillter-primary-focus-border-color: #2980b9;
   --tb-fillter-primary-focus-box-shadow: 0 0 5px #2980b9;
+  --mui-table-container-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
 }
 
 /* Reusable class for focus styles */
@@ -54,3 +56,5 @@ html {
   font-size: 12px;
   margin: 5px 0px;
 }
+
+

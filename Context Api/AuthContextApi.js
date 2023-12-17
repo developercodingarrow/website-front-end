@@ -9,6 +9,7 @@ export const AuthContext = createContext();
 import { createNewUser, verifyOtp } from "../Actions/authAction";
 
 export default function AuthContextApiProvider({ children }) {
+  const [loading, setloading] = useState(false);
   const handelCreateNewUser = async (data) => {
     try {
       const response = await createNewUser(data);
@@ -28,7 +29,9 @@ export default function AuthContextApiProvider({ children }) {
     }
   };
   return (
-    <AuthContext.Provider value={{ handelCreateNewUser, handelverifyOtp }}>
+    <AuthContext.Provider
+      value={{ handelCreateNewUser, handelverifyOtp, loading, setloading }}
+    >
       {children}
     </AuthContext.Provider>
   );

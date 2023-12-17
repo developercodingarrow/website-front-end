@@ -1,13 +1,16 @@
 /* dynimicTable.module.css */
 
 .table_container {
-  background-color: gray;
+  background-color: #fff;
   overflow: auto;
   max-width: 100%;
+  box-shadow: var(--mui-table-container-shadow);
 }
 
 .table_wrapper {
   overflow-x: auto;
+  overflow-y: auto;
+  height: 200px;
 }
 
 .table {
@@ -16,25 +19,35 @@
 }
 
 .tableHeader {
-  border: 2px solid red;
-  background-color: red;
+  /* border: 1px solid red; */
   position: sticky;
   top: 0;
   z-index: 1;
 }
 
 .tableTr {
-  border: 1px solid red;
+  background-color: #fff;
+  border-bottom: 2px solid rgba(224, 224, 224, 1);
+}
+.table th {
+  font-weight: 500;
+  font-family: var(--bs-font-family);
+  font-size: 14px;
 }
 
 .table_body {
-  border: 3px solid black;
 }
 
 /* Adjust padding for both th and td */
 .table th,
 .table td {
   padding: 8px;
-  border: 1px solid green;
+  /* border: 1px solid green; */
   text-align: center;
+}
+
+.table td {
+  border-bottom: 1px solid rgba(224, 224, 224, 1);
+  font-weight: 400;
+  font-size: 14px;
 }

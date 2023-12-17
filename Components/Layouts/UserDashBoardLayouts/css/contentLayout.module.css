@@ -1,0 +1,23 @@
+.main_container {
+  background-color: #fff;
+  padding: 20px;
+}
+
+.stats_contaner {
+  width: 100%;
+  min-height: 100px;
+}
+
+.content_container {
+  display: flex;
+  column-gap: 20px;
+  row-gap: 20px;
+}
+
+.content_side {
+  width: 70%;
+}
+
+.right_side {
+  width: 30%;
+}
