@@ -10,7 +10,8 @@
 .table_wrapper {
   overflow-x: auto;
   overflow-y: auto;
-  height: 200px;
+  max-height: 400px;
+  margin-bottom: 20px;
 }
 
 .table {
@@ -50,4 +51,30 @@
   border-bottom: 1px solid rgba(224, 224, 224, 1);
   font-weight: 400;
   font-size: 14px;
+}
+
+.table_footerContainer {
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: flex-end;
+  column-gap: 10px;
+}
+
+.row_perPageBox {
+  font-size: 14px;
+  font-family: var(--bs-font-family);
+}
+
+.row_selectBox {
+}
+
+.row_totalNumerBox {
+  display: flex;
+  column-gap: 5px;
+}
+
+.row_arrowBox {
+  display: flex;
+  column-gap: 10px;
 }

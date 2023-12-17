@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./css/dynimicTable.module.css";
 import { CheckBoxElementsForSingle } from "../CustomeElements/Html Element/CheckBoxElements";
 import SwitchBtn from "../CustomeElements/Html Element/SwitchBtn";
 import Buttons from "../CustomeElements/Html Element/Buttons";
+import useTableFillters from "../../custome-hooks/useTableFillters";
 
 export default function DynamicTable(props) {
   const {
@@ -20,6 +21,22 @@ export default function DynamicTable(props) {
     // Add more handlers as needed based on component types
   };
 
+  const {
+    visibalRows,
+    totalRows,
+    startIndex,
+    endIndex,
+    rowsPerPage,
+    currentPage,
+    handleRowsPerPageChangeWrapper,
+    updateVisibleRows,
+  } = useTableFillters(tableData);
+
+  useEffect(() => {
+    updateVisibleRows();
+    console.log("useEffect");
+  }, [currentPage, rowsPerPage]);
+
   return (
     <div className={styles.table_container}>
       <div className={styles.table_wrapper}>
@@ -32,7 +49,7 @@ export default function DynamicTable(props) {
             </tr>
           </thead>
           <tbody className={styles.table_body}>
-            {tableData.map((row, no) => (
+            {visibalRows.map((row, no) => (
               <tr key={row.id}>
                 {tableColumns.map((column) => (
                   <td key={column.label}>
@@ -48,6 +65,28 @@ export default function DynamicTable(props) {
             ))}
           </tbody>
         </table>
+      </div>
+      <div className={styles.table_footerContainer}>
+        <div className={styles.row_perPageBox}>Row per page</div>
+        <div className={styles.row_selectBox}>
+          <select value={rowsPerPage} onChange={handleRowsPerPageChangeWrapper}>
+            <option value={5}>5</option>
+            <option value={10}>10</option>
+            <option value={50}>50</option>
+          </select>
+        </div>
+        <div className={styles.row_totalNumerBox}>
+          <span>{startIndex}</span>
+          <span>-</span>
+          <span>{endIndex}</span>
+          <span>of</span>
+          <span>{totalRows}</span>
+        </div>
+
+        <div className={styles.row_arrowBox}>
+          <span>{"<"}</span>
+          <span>{">"}</span>
+        </div>
       </div>
     </div>
   );
