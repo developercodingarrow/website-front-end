@@ -1,0 +1,77 @@
+.main_container {
+}
+
+.form_wrapper {
+  display: flex;
+  column-gap: 20px;
+}
+
+.left_side {
+  width: 30%;
+}
+
+.Right_side {
+  width: 60%;
+}
+
+.card_wrapper {
+}
+
+.card_titleBox {
+  padding: 0px 5px;
+  margin-bottom: 10px;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1em;
+  color: #ed6789;
+}
+
+.card {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03) !important;
+  background: #ffffff;
+  border-radius: 16px;
+  border: initial;
+  margin-bottom: 20px;
+}
+
+.card_body {
+  padding: 32px;
+}
+
+/* .input_box {
+  display: flex;
+  flex-direction: column;
+  column-gap: 8px;
+  row-gap: 8px;
+  margin-bottom: 20px;
+}
+
+.lable_style {
+  color: #7c7c7c;
+  font-size: 14px;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 400;
+} */
+
+/* .input_style {
+  font-size: 14px;
+  height: auto;
+  min-height: 20px;
+  padding: 6px 12px;
+  color: #4e4e4e;
+  box-shadow: initial !important;
+  background-color: #ffffff;
+  border-color: #dddddd;
+  border-radius: 10px;
+  transition: border-color 0.15s ease-in-out;
+  outline: none;
+  display: block;
+  width: 100%;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  appearance: none;
+  border-radius: 10px;
+} */
