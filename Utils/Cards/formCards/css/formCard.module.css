@@ -21,3 +21,12 @@
 .card_body {
   padding: 32px;
 }
+
+.card_input_wrapper {
+  margin-bottom: 20px;
+}
+
+.card_btnBox {
+  display: flex;
+  justify-content: flex-end;
+}

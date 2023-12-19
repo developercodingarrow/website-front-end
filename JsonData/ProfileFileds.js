@@ -11,6 +11,11 @@ export const userDetails = [
   },
 ];
 
+export const userDetailApi = {
+  id: 1,
+  name: "sandep",
+};
+
 export const CreditaionDetails = [
   {
     id: 1,
@@ -18,6 +23,7 @@ export const CreditaionDetails = [
     type: "text",
     placeholder: "E-mail",
     lable: "Email",
+    readOnlyMode: true,
     validation: {
       required: "Email is required.",
     },
@@ -28,8 +34,44 @@ export const CreditaionDetails = [
     type: "text",
     placeholder: "password",
     lable: "Password",
+    readOnlyMode: true,
     validation: {
       required: "Email is required.",
     },
   },
 ];
+
+export const CreditaionDetailsApi = {
+  id: 1,
+  email: "sandeep@gmail.com",
+  passwords: "12345678",
+};
+
+export const BusinessDetails = [
+  {
+    id: 1,
+    name: "companyName",
+    type: "text",
+    placeholder: "Company Name",
+    label: "Company Name", // Changed 'lable' to 'label'
+    validation: {
+      required: "COMPANY NAME is required.",
+    },
+  },
+  {
+    id: 2,
+    name: "GST_No", // Changed 'Name' to 'name'
+    type: "text",
+    placeholder: "GST No",
+    label: "GST No", // Changed 'lable' to 'label'
+    validation: {
+      required: "GST No is required.",
+    },
+  },
+];
+
+export const BusinessDetailsApi = {
+  id: 1,
+  companyName: "XYZ enter price",
+  GST_No: "04AABCU9603R1ZV",
+};

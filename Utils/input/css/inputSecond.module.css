@@ -49,3 +49,11 @@
 .input_Padding {
   padding: 6px 12px;
 }
+
+.readOnlyInput {
+  background-color: #dddddd80;
+}
+
+.editableInput {
+  background-color: #ffffff;
+}

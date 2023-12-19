@@ -9,8 +9,18 @@ export default function InputSecond(props) {
     inputContainer,
     inputLabel,
     lableStyle,
+    readOnlyMode = false,
+
     ...inputProps
   } = props;
+
+  // const inputClasses = readOnlyMode
+  //   ? styles.readOnlyInput
+  //   : styles.editableInput;
+
+  const inputClasses = `${styles[inputDesign]} ${styles[inputPadding]} ${
+    readOnlyMode ? styles.readOnlyInput : styles.editableInput
+  }`;
   return (
     <div className={styles[inputContainer]}>
       {inputLabel && (
@@ -21,8 +31,10 @@ export default function InputSecond(props) {
 
       <div className={styles.inputBox}>
         <input
-          className={`${styles[inputDesign]} ${styles[inputPadding]}`}
+          // className={`${styles[inputDesign]} ${styles[inputPadding]} ${inputClasses}`}
+          className={inputClasses}
           {...inputProps}
+          readOnly={readOnlyMode}
         />
       </div>
     </div>
