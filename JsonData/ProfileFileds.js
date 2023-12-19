@@ -68,6 +68,18 @@ export const BusinessDetails = [
       required: "GST No is required.",
     },
   },
+
+  {
+    id: 2,
+    name: "companytype", // Changed 'Name' to 'name'
+    type: "select",
+    placeholder: "Company Type",
+    label: "GST No", // Changed 'lable' to 'label'
+    options: ["proprietor", "private company"],
+    validation: {
+      required: "GST No is required.",
+    },
+  },
 ];
 
 export const BusinessDetailsApi = {

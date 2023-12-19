@@ -4,6 +4,7 @@ import InputSecond from "../../input/InputSecond";
 import { useForm, Controller } from "react-hook-form";
 import SubmitBtn from "../../CustomeElements/Html Element/SubmitBtn";
 import CustomeLink from "../../customeLinks/CustomeLink";
+import SelectInput from "../../input/SelectInput";
 
 export default function FormCards(props) {
   const { title, customeInputs, apiData, actionType } = props;
@@ -34,7 +35,7 @@ export default function FormCards(props) {
           inputPadding: "input_Padding",
           inputplaceholder: "user name",
           inputContainer: "block_container",
-          inputLabel: "Name",
+          inputLabel: input.label,
           lableStyle: "lable_style",
           // Add specific props for InputSecond
         };
@@ -42,7 +43,9 @@ export default function FormCards(props) {
       case "select":
         InputComponent = SelectInput;
         specificProps = {
-          // Add specific props for SelectInput
+          selectOptions: input.options || [],
+          inputLabel: input.label,
+          lableStyle: "lable_style",
         };
         break;
       case "checkbox":
