@@ -1,0 +1,22 @@
+.main_Container {
+  display: flex;
+  row-gap: 20px;
+  column-gap: 20px;
+}
+
+.checkBox_container {
+  display: flex;
+  row-gap: 10px;
+  column-gap: 10px;
+}
+
+.checkBox_wrapper {
+  display: flex;
+  column-gap: 20px;
+  row-gap: 20px;
+}
+.lable_Box {
+}
+
+.input_box {
+}

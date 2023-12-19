@@ -73,6 +73,10 @@ export default function FormCards(props) {
           lableStyle: "lable_style",
           inputContainer: "block_container",
           defaultValue: defaultValue || "",
+          radiostyle: "inlineRadio_container",
+          radioTitleGap: "title_rowGap",
+          radio_textgap: "radio_btn_textGap",
+          radioOptionBox: "inline_radioOptionBox",
         };
         break;
       default:

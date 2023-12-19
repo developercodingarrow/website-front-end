@@ -2,16 +2,26 @@ import React from "react";
 import styles from "./css/radioinput.module.css";
 
 export default function RadioInput(props) {
-  const { radioOptions, onChange, selectedOption } = props;
+  const {
+    radioOptions,
+    onChange,
+    selectedOption,
+    radiostyle,
+    radioTitleGap,
+    radio_textgap,
+    radioOptionBox,
+  } = props;
 
   const handleRadioChange = (option) => {
     onChange(option);
   };
 
+  const radioContainer = `${styles[radiostyle]} ${styles[radioTitleGap]}`;
+
   return (
-    <div className={styles.radioContainer}>
-      <div>lable</div>
-      <div>
+    <div className={radioContainer}>
+      <div className={styles.radio_title}>lable</div>
+      <div className={styles[radioOptionBox]}>
         {radioOptions.map((option, index) => (
           <div
             className={`${styles.radioOption} ${
@@ -25,7 +35,10 @@ export default function RadioInput(props) {
                 <div className={`${styles.innerDot} ${styles.selected}`}></div>
               )}
             </div>
-            <label>{option}</label>
+            <div className={styles[radio_textgap]}>
+              {" "}
+              <label>{option}</label>{" "}
+            </div>
           </div>
         ))}
       </div>

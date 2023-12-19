@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import styles from "./css/checkBoxinput.module.css";
 
 export default function CheckboxInput(props) {
   const { onChange, checkBoxOptions, defaultValue, ...inputProps } = props;
@@ -25,22 +26,31 @@ export default function CheckboxInput(props) {
   };
 
   return (
-    <div>
-      <p>Check box imput</p>
-      {checkBoxOptions.map((option, index) => {
-        return (
-          <div>
-            <div> {option} </div>
-            <input
-              type="checkbox"
-              value={option}
-              {...inputProps}
-              onChange={(e) => handleCheckboxChange(option, e.target.checked)}
-              checked={checkedOptions.includes(option)}
-            />
-          </div>
-        );
-      })}
+    <div className={styles.main_Container}>
+      <div className={styles.title_box}>
+        <p>service</p>
+      </div>
+
+      <div className={styles.checkBox_container}>
+        {checkBoxOptions.map((option, index) => {
+          return (
+            <div className={styles.checkBox_wrapper}>
+              <div className={styles.lable_Box}> {option} </div>
+              <div className={styles.input_box}>
+                <input
+                  type="checkbox"
+                  value={option}
+                  {...inputProps}
+                  onChange={(e) =>
+                    handleCheckboxChange(option, e.target.checked)
+                  }
+                  checked={checkedOptions.includes(option)}
+                />
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
