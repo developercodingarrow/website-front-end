@@ -1,0 +1,51 @@
+/* RadioInput.module.css */
+
+/* Styles for the radio container */
+.radioContainer {
+  display: flex;
+  flex-direction: column;
+  column-gap: 10px;
+  row-gap: 10px;
+}
+
+/* Styles for individual radio option */
+.radioOption {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+/* Styles for the outer circle */
+.outerCircle {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 2px solid #969faf; /* Default color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: border-color 0.3s ease-in-out;
+}
+
+/* Styles for the inner dot */
+.innerDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: transparent;
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* Styles for the selected inner dot */
+.innerDot.selected {
+  background-color: #0072e5; /* Selected color */
+}
+
+/* Styles for the selected outer circle */
+.outerCircle.selected {
+  border-color: #0072e5; /* Selected color */
+  width: 20px; /* Adjust the outer circle size when selected */
+  height: 20px; /* Adjust the outer circle size when selected */
+  padding: 0px; /* Adjust padding to create space between the dot and outer circle */
+}

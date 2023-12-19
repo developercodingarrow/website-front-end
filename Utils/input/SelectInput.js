@@ -1,17 +1,23 @@
 import React from "react";
 import styles from "./css/selectInput.module.css";
 export default function SelectInput(props) {
-  const { selectOptions, inputLabel, lableStyle } = props;
+  const {
+    selectOptions,
+    inputLabel,
+    lableStyle,
+    inputContainer,
+    ...inputProps
+  } = props;
   return (
-    <div className={styles.selectBox}>
+    <div className={styles[inputContainer]}>
       {inputLabel && (
         <div className={styles.lable_Box}>
           <label className={styles[lableStyle]}>{inputLabel}</label>
         </div>
       )}
-      <select className={styles.selectDesign}>
+      <select className={styles.selectDesign} {...inputProps}>
         {selectOptions.map((option, index) => (
-          <option key={index} className={styles.optionDesign}>
+          <option key={index} className={styles.optionDesign} value={option}>
             {option}
           </option>
         ))}

@@ -5,6 +5,8 @@ import { useForm, Controller } from "react-hook-form";
 import SubmitBtn from "../../CustomeElements/Html Element/SubmitBtn";
 import CustomeLink from "../../customeLinks/CustomeLink";
 import SelectInput from "../../input/SelectInput";
+import CheckboxInput from "../../input/CheckboxInput";
+import RadioInput from "../../input/RadioInput";
 
 export default function FormCards(props) {
   const { title, customeInputs, apiData, actionType } = props;
@@ -14,6 +16,7 @@ export default function FormCards(props) {
     formState: { errors, isValid },
     control,
     watch,
+    setValue,
   } = useForm({
     mode: "all", // Use "onChange" mode for real-time validation as the user types
   });
@@ -27,16 +30,18 @@ export default function FormCards(props) {
   // Function to render input based on type
   const renderInput = (input) => {
     let InputComponent, specificProps;
+    let defaultValue = apiData[input.name];
     switch (input.type) {
       case "text":
         InputComponent = InputSecond;
         specificProps = {
           inputDesign: "inputDesign",
           inputPadding: "input_Padding",
-          inputplaceholder: "user name",
+          inputplaceholder: input.placeholder,
           inputContainer: "block_container",
           inputLabel: input.label,
           lableStyle: "lable_style",
+          defaultValue: defaultValue || "",
           // Add specific props for InputSecond
         };
         break;
@@ -46,12 +51,28 @@ export default function FormCards(props) {
           selectOptions: input.options || [],
           inputLabel: input.label,
           lableStyle: "lable_style",
+          inputContainer: "block_container",
         };
         break;
       case "checkbox":
         InputComponent = CheckboxInput;
         specificProps = {
-          // Add specific props for CheckboxInput
+          checkBoxOptions: input.options,
+          inputLabel: input.label,
+          onChange: (selectedOptions) => setValue(input.name, selectedOptions), // Update the form value
+          defaultValue: defaultValue || [],
+        };
+        break;
+      case "radio":
+        InputComponent = RadioInput;
+        specificProps = {
+          radioOptions: input.options || [],
+          onChange: (selectedOption) => setValue(input.name, selectedOption), // Update the form value
+          selectedOption: watch(input.name),
+          inputLabel: input.label,
+          lableStyle: "lable_style",
+          inputContainer: "block_container",
+          defaultValue: defaultValue || "",
         };
         break;
       default:
@@ -63,14 +84,17 @@ export default function FormCards(props) {
         key={input.id}
         name={input.name}
         control={control}
-        defaultValue={apiData[input.name]}
+        defaultValue={defaultValue}
         rules={input.validation}
         render={({ field }) => (
-          <InputComponent
-            {...input}
-            {...field}
-            {...specificProps} // Merge specificProps with the input component props
-          />
+          console.log(field),
+          (
+            <InputComponent
+              {...input}
+              {...field}
+              {...specificProps} // Merge specificProps with the input component props
+            />
+          )
         )}
       />
     );

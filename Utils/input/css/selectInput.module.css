@@ -1,4 +1,13 @@
-.selectBox {
+.block_container {
+  display: flex;
+  flex-direction: column;
+  column-gap: 8px;
+  row-gap: 8px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.lable_Box {
 }
 
 .lable_style {
