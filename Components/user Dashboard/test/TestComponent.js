@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "./css/profile.module.css";
-import FormCards from "../../../Utils/Cards/formCards/FormCards";
+import styles from "../ProfileUpdate/css/profile.module.css";
+import TestFormCard from "../../../Utils/Cards/formCards/TestFormCard";
 import {
   userDetails,
   CreditaionDetails,
@@ -9,14 +9,14 @@ import {
   BusinessDetails,
   BusinessDetailsApi,
 } from "../../../JsonData/ProfileFileds";
-export default function ProfileComponent() {
+export default function TestComponent() {
   return (
     <>
       <div className={styles.main_container}>
         <div className={styles.form_wrapper}>
           <div className={styles.left_side}>
             <div>
-              <FormCards
+              <TestFormCard
                 title="USER DETAILS"
                 customeInputs={userDetails}
                 apiData={userDetailApi}
@@ -25,7 +25,7 @@ export default function ProfileComponent() {
             </div>
 
             <div>
-              <FormCards
+              <TestFormCard
                 title="USER LOGIN DETAILS"
                 customeInputs={CreditaionDetails}
                 apiData={CreditaionDetailsApi}
@@ -35,7 +35,7 @@ export default function ProfileComponent() {
           </div>
           <div className={styles.Right_side}>
             <div>
-              <FormCards
+              <TestFormCard
                 title="Business DETAILS"
                 customeInputs={BusinessDetails}
                 apiData={BusinessDetailsApi}

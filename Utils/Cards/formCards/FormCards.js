@@ -25,8 +25,6 @@ export default function FormCards(props) {
     alert(JSON.stringify(data));
   };
 
-  console.log(apiData.name);
-
   // Function to render input based on type
   const renderInput = (input) => {
     let InputComponent, specificProps;
@@ -150,33 +148,3 @@ export default function FormCards(props) {
     </>
   );
 }
-
-/*
-  {customeInputs.map((input, i) => {
-                  return (
-                    <div>
-                      <Controller
-                        name={input.name}
-                        control={control}
-                        defaultValue={apiData[input.name]}
-                        rules={input.validation}
-                        render={({ field }) => (
-                          <>
-                            <InputSecond
-                              {...input}
-                              {...field}
-                              inputDesign="inputDesign"
-                              inputPadding="input_Padding"
-                              inputplaceholder="user name"
-                              inputContainer="block_container"
-                              inputLabel="Name"
-                              lableStyle="lable_style"
-                            />
-                          </>
-                        )}
-                      />
-                    </div>
-                  );
-                })}
-
-*/

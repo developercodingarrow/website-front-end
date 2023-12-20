@@ -41,9 +41,9 @@ export const asidebarOptions = [
     link: "/",
   },
   {
-    name: "NEW USERS",
+    name: "TEST COMPONENT",
     iconComponent: AiOutlineDashboard, // Use the imported component
-    link: "/super-admin/new-users",
+    link: "/user-dashboard/business/test",
   },
   {
     name: "Profile Update",
