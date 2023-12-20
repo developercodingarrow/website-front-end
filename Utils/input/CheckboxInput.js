@@ -2,7 +2,14 @@ import React, { useEffect, useState } from "react";
 import styles from "./css/checkBoxinput.module.css";
 
 export default function CheckboxInput(props) {
-  const { onChange, checkBoxOptions, defaultValue, ...inputProps } = props;
+  const {
+    onChange,
+    checkBoxOptions,
+    defaultValue,
+    checkBoxStyle,
+    checkBoxContainerStyle,
+    ...inputProps
+  } = props;
   const [checkedOptions, setCheckedOptions] = useState([]);
 
   useEffect(() => {
@@ -13,30 +20,26 @@ export default function CheckboxInput(props) {
   }, [defaultValue]);
 
   const handleCheckboxChange = (option, isChecked) => {
-    let updatedOptions;
-
-    if (isChecked) {
-      updatedOptions = [...checkedOptions, option];
-    } else {
-      updatedOptions = checkedOptions.filter((item) => item !== option);
-    }
+    const updatedOptions = isChecked
+      ? [...checkedOptions, option]
+      : checkedOptions.filter((item) => item !== option);
 
     setCheckedOptions(updatedOptions);
     onChange(updatedOptions);
   };
-
   return (
     <div className={styles.main_Container}>
-      <div className={styles.title_box}>
-        <p>service</p>
-      </div>
+      <div className={styles[checkBoxStyle]}>
+        <div className={styles.title_box}>
+          <p>service</p>
+        </div>
 
-      <div className={styles.checkBox_container}>
-        {checkBoxOptions.map((option, index) => {
-          return (
-            <div className={styles.checkBox_wrapper}>
-              <div className={styles.lable_Box}> {option} </div>
-              <div className={styles.input_box}>
+        <div className={styles[checkBoxContainerStyle]}>
+          {checkBoxOptions.map((option, index) => {
+            const isChecked = checkedOptions.includes(option);
+
+            return (
+              <label className={styles.label_Box} key={index}>
                 <input
                   type="checkbox"
                   value={option}
@@ -44,12 +47,34 @@ export default function CheckboxInput(props) {
                   onChange={(e) =>
                     handleCheckboxChange(option, e.target.checked)
                   }
-                  checked={checkedOptions.includes(option)}
+                  checked={isChecked}
+                  style={{ display: "none" }} // Hide default checkbox
                 />
-              </div>
-            </div>
-          );
-        })}
+                <span
+                  className={`${styles.customCheckbox} ${
+                    isChecked ? styles.checked : ""
+                  }`}
+                >
+                  {isChecked ? (
+                    <span className={styles.checkedMark}>✔</span>
+                  ) : (
+                    ""
+                  )}
+                </span>
+                <span
+                  className={
+                    isChecked
+                      ? `${styles.lableChecked}`
+                      : `${styles.checkBoxLable}`
+                  }
+                >
+                  {" "}
+                  {option}{" "}
+                </span>
+              </label>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

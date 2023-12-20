@@ -14,16 +14,18 @@
 
 .radio_title {
   text-transform: capitalize;
+  color: var(--ts-gray);
 }
 
 .radio_btn_textGap {
-  margin: 0px 20px;
+  margin: 0px var(--ts-gap-20);
 }
 
-.radio_box {
+/* .radio_box {
   display: flex;
   row-gap: 10px;
-}
+  border: 1px solid red;
+} */
 
 /* Styles for individual radio option */
 .radioOption {
@@ -45,7 +47,7 @@
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  border: 2px solid #969faf; /* Default color */
+  border: 2px solid #969faf;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,24 +56,27 @@
 
 /* Styles for the inner dot */
 .innerDot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
+  width: var(--ts-radio-dot-size-10);
+  height: var(--ts-radio-dot-size-10);
+  border-radius: var(--ts-border-radius-50);
   background-color: transparent;
   transition: background-color 0.3s ease-in-out;
 }
 
 /* Styles for the selected inner dot */
 .innerDot.selected {
-  background-color: var(--bs-primary); /* Selected color */
+  background-color: var(--ts-primary); /* Selected color */
 }
 
 /* Styles for the selected outer circle */
 .outerCircle.selected {
-  border-color: var(--bs-primary);
-  width: 20px;
-  height: 20px;
+  border-color: var(--ts-primary);
+  width: var(--ts-radio-circle-size-20);
+  height: var(--ts-radio-circle-size-20);
   padding: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* in a row */
@@ -82,13 +87,13 @@
 }
 
 .title_rowGap {
-  row-gap: 20px;
-  column-gap: 20px;
+  row-gap: var(--ts-gap-20);
+  column-gap: var(--ts-gap-20);
 }
 
 .row_radioOptionBox {
   display: flex;
   flex-direction: column;
-  row-gap: 10px;
+  row-gap: var(--ts-gap-20);
   cursor: pointer;
 }

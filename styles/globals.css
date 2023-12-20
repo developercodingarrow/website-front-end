@@ -15,6 +15,17 @@ html {
 }
 
 :root {
+  --ts-primary: #ed6789;
+  --ts-gray: #7c7c7c;
+  --ts-gap-20: 20px;
+  --ts-radio-circle-size-20: 20px;
+  --ts-radio-dot-size-10: 10px;
+  --ts-border-radius-50: 50%;
+  --ts-text-color: #212529;
+  --ts-1px-border: 1px solid #ced4da;
+  --ts-10-border-radius: 10px;
+  --ts-read-input-bg: #dddddd80;
+  --ts-white: #ffffff;
   --bs-primary: #5d87ff;
   --primary-bg: #ebebeb;
   --bs-border-color: #ebf1f6;

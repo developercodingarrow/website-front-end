@@ -61,6 +61,8 @@ export default function FormCards(props) {
           inputLabel: input.label,
           onChange: (selectedOptions) => setValue(input.name, selectedOptions), // Update the form value
           defaultValue: defaultValue || [],
+          checkBoxStyle: "inLine_customCheckbox_wrapper",
+          checkBoxContainerStyle: "inLine_checkBox_container",
         };
         break;
       case "radio":
