@@ -5,6 +5,11 @@ import { AuthContext } from "../../Context Api/AuthContextApi";
 
 export default function SignUpPage() {
   const { handelCreateNewUser } = useContext(AuthContext);
+
+  const onFormSubmit = (data, handleForm) => {
+    // Your default submission action
+    alert(JSON.stringify(data));
+  };
   return (
     <>
       <AuthFormLayout formTitle="Login">
@@ -13,7 +18,7 @@ export default function SignUpPage() {
           btntext="REGISTER"
           formType="SINGUP"
           formdescreption="Create an account to start using Dashcode"
-          handelForm={handelCreateNewUser}
+          handleFormSubmit={handelCreateNewUser}
         />
       </AuthFormLayout>
     </>

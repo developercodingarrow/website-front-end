@@ -14,7 +14,7 @@ export default function ForgotePassword() {
           formType="forgote-password"
           customInputs={forgotePasswordInputs}
           formdescreption="Enter your Register E-mail Address and send tour Otp for Reset your password"
-          handelForm={handelverifyOtp}
+          handleFormSubmit={handelverifyOtp}
         />
       </AuthFormLayout>
     </>

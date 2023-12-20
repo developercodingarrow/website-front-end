@@ -14,7 +14,7 @@ export default function OtpVerification() {
           formType="SINGUP"
           customInputs={otpVerifation}
           formdescreption="Enter your Register E-mail Address and send tour Otp for Reset your password"
-          handelForm={handelverifyOtp}
+          handleFormSubmit={handelverifyOtp}
         />
       </AuthFormLayout>
     </>
