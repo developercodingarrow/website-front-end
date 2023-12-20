@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import styles from "../css/newUse.module.css";
-import DynamicTable from "../../../Utils/tabls Componant/DynimicTable";
+import DynimicTableCopy from "../../../Utils/tabls Componant/DynimicTable";
 import { newUserColumn, sampleData } from "../../../JsonData/TableData";
 import SimpleFillter from "../../../Utils/tabls Componant/fillterComponent/SimpleFillter";
 import { FillterContext } from "../../../Context Api/FillterContext";
@@ -14,7 +14,7 @@ export default function NewUsrsComponent() {
           <SimpleFillter data={sampleData} />
         </div>
         <div className={styles.table_Container}>
-          <DynamicTable
+          <DynimicTableCopy
             visibalRows={visibalRows}
             tableData={sampleData}
             tableColumns={newUserColumn}

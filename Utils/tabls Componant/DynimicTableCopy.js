@@ -6,7 +6,7 @@ import Buttons from "../CustomeElements/Html Element/Buttons";
 import useTableFillters from "../../custome-hooks/useTableFillters";
 import renderCellContent from "../Component-logics/renderTableCellContent";
 
-export default function DynamicTable(props) {
+export default function DynimicTableCopy(props) {
   const {
     tableData,
     tableColumns,

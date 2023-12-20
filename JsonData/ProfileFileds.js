@@ -91,17 +91,6 @@ export const BusinessDetails = [
       required: "Please select a business type.",
     },
   },
-
-  // {
-  //   id: 4,
-  //   name: "servicesOffered", // Changed 'Name' to 'name'
-  //   type: "checkbox",
-  //   label: "Services Offered", // Changed 'lable' to 'label'
-  //   options: ["supplier", "Whole sale", "Manufacture"], // Add your checkbox options here
-  //   validation: {
-  //     required: "Please select at least one service.", // Validation message for checkboxes
-  //   },
-  // },
 ];
 
 export const BusinessDetailsApi = {

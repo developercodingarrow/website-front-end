@@ -38,7 +38,7 @@ export const asidebarOptions = [
   {
     name: "Dashboard",
     iconComponent: AiOutlineDashboard, // Use the imported component
-    link: "/",
+    link: "/user-dashboard",
   },
   {
     name: "TEST COMPONENT",
@@ -51,15 +51,15 @@ export const asidebarOptions = [
     link: "/user-dashboard/business/update-profile/id",
   },
   {
-    name: "Blog",
+    name: "Dynimc Table",
     iconComponent: AiOutlineDashboard, // Use the imported component
-    link: "/",
+    link: "/super-admin/new-users",
   },
 
   {
     name: "Enquires",
     iconComponent: AiOutlineDashboard, // Use the imported component
-    link: "/",
+    link: "/user-dashboard",
   },
 ];
 
