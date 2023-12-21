@@ -2,19 +2,18 @@ import React from "react";
 import styles from "./css/formCard.module.css";
 import SubmitBtn from "../../CustomeElements/Html Element/SubmitBtn";
 import CustomeLink from "../../customeLinks/CustomeLink";
-import { useCustomFormLogic } from "../../../custome-hooks/useCustomFormLogic";
+import { useCustomFormLogiccopy } from "../../../custome-hooks/useCustomFormLogiccopy";
 
 export default function TestFormCard(props) {
-  const { title, customeInputs, apiData, actionType } = props;
+  const { title, customeInputs, apiData, actionType, handelfomSubmit } = props;
   const {
     handleSubmit,
     formState: { errors, isValid },
     control,
     watch,
     setValue,
-    onSubmit,
     renderInput,
-  } = useCustomFormLogic(apiData);
+  } = useCustomFormLogiccopy(apiData);
   return (
     <>
       <div className={styles.card_wrapper}>
@@ -24,7 +23,7 @@ export default function TestFormCard(props) {
 
         <div className={styles.card}>
           <div className={styles.card_body}>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(handelfomSubmit)}>
               <div className={styles.card_input_wrapper}>
                 {customeInputs.map((input) => renderInput(input))}
               </div>
