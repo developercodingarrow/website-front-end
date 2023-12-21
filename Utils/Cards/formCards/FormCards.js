@@ -91,14 +91,11 @@ export default function FormCards(props) {
         defaultValue={defaultValue}
         rules={input.validation}
         render={({ field }) => (
-          console.log(field),
-          (
-            <InputComponent
-              {...input}
-              {...field}
-              {...specificProps} // Merge specificProps with the input component props
-            />
-          )
+          <InputComponent
+            {...input}
+            {...field}
+            {...specificProps} // Merge specificProps with the input component props
+          />
         )}
       />
     );

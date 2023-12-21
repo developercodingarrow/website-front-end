@@ -1,4 +1,4 @@
-import performAPIAction from "./performAPIAction";
+import { performAPIAction } from "./performAPIAction";
 
 // CREATE NEW USER
 export const createNewUser = async (requestData) => {
