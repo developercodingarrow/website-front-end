@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { imgesDetailsFileds } from "../JsonData/imageUploadsFileds";
 
-export function useImageUploadModel() {
+export function useImageUploadModel(filedName = "") {
   const [uploadedImages, setUploadedImages] = useState([]);
-  const [imageDetails, setImageDetails] = useState([]);
+  const [imageInfo, setimageInfo] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [formDataArray, setFormDataArray] = useState([]);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -13,7 +15,7 @@ export function useImageUploadModel() {
     setIsModalOpen(false);
   };
 
-  const handleUpload = (files) => {
+  const handelImageSelect = (files) => {
     if (files.length === 0) {
       return;
     }
@@ -27,9 +29,11 @@ export function useImageUploadModel() {
     const reader = new FileReader();
     reader.onload = (event) => {
       setUploadedImages([...uploadedImages, event.target.result]);
-      setImageDetails([...imageDetails, {}]);
+      setimageInfo([...imageInfo, {}]);
     };
     reader.readAsDataURL(file);
+    const newFormData = createFormData();
+    setFormDataArray([...formDataArray, newFormData]);
   };
 
   const removeImage = (index) => {
@@ -37,25 +41,48 @@ export function useImageUploadModel() {
     updatedImages.splice(index, 1);
     setUploadedImages(updatedImages);
 
-    const updatedDetails = [...imageDetails];
+    const updatedDetails = [...imageInfo];
     updatedDetails.splice(index, 1);
-    setImageDetails(updatedDetails);
+    setimageInfo(updatedDetails);
+    const newFormData = createFormData();
+    setFormDataArray([...formDataArray, newFormData]);
   };
 
   const updateImageDetails = (index, fieldName, value) => {
-    const updatedDetails = [...imageDetails];
+    const updatedDetails = [...imageInfo];
     updatedDetails[index] = { ...updatedDetails[index], [fieldName]: value };
-    setImageDetails(updatedDetails);
+    setimageInfo(updatedDetails);
+
+    const newFormData = createFormData();
+    setFormDataArray([...formDataArray, newFormData]);
+  };
+
+  const createFormData = () => {
+    const formDataArray = [];
+
+    for (let i = 0; i < uploadedImages.length; i++) {
+      const formData = new FormData();
+      formData.append(filedName, uploadedImages[i]);
+
+      for (const detail of imageInfo[i]) {
+        formData.append(detail.name, detail.value);
+      }
+
+      formDataArray.push(formData);
+    }
+
+    return formDataArray;
   };
 
   return {
     uploadedImages,
-    imageDetails,
-    handleUpload,
+    imageInfo,
+    handelImageSelect,
     removeImage,
     updateImageDetails,
     isModalOpen,
     openModal,
     closeModal,
+    formDataArray,
   };
 }

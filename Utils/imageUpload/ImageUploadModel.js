@@ -4,24 +4,31 @@ import Image from "next/image";
 import { useImageUploadModel } from "../../custome-hooks/useImageUploadModel";
 import SimpleImagePreview from "./ImagePreviews/SimpleImagePreview";
 import ImageDetails from "./ImageDetails";
+import { handelUplaodGallery } from "../Cards/formCards/ImageHandeler";
 
 export default function ImageUploadModel(props) {
-  const { isOpen, closeModal, handleImageUpload, uploadedImage } = props;
+  const { isOpen, closeModal } = props;
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
   const {
     uploadedImages,
-    imageDetails,
-    handleUpload,
+    imageInfo,
+    handelImageSelect,
     removeImage,
     updateImageDetails,
-  } = useImageUploadModel();
+    formDataArray,
+    handelSubmitData,
+  } = useImageUploadModel("galleryPhotos");
 
   const handleImageClick = (index) => {
     setSelectedImageIndex(index);
   };
 
-  const handleInputChange = (e) => {
-    handleUpload(e.target.files);
+  const handelImageChoose = (e) => {
+    handelImageSelect(e.target.files);
+  };
+
+  const handelSubmitIamge = async () => {
+    await handelSubmitData(formDataArray);
   };
 
   return (
@@ -37,7 +44,7 @@ export default function ImageUploadModel(props) {
               {[...Array(props.numberOfImages)].map((_, index) => (
                 <div key={index} className={styles.imageInput}>
                   <label>Image {index + 1}:</label>
-                  <input type="file" onChange={handleInputChange} />
+                  <input type="file" onChange={handelImageChoose} />
                 </div>
               ))}
             </div>
@@ -52,7 +59,7 @@ export default function ImageUploadModel(props) {
             {selectedImageIndex !== null && (
               <div className={styles.imageDetailsWrapper}>
                 <ImageDetails
-                  imageDetails={imageDetails[selectedImageIndex]}
+                  imageInfo={imageInfo[selectedImageIndex]}
                   updateImageDetails={(fieldName, value) =>
                     updateImageDetails(selectedImageIndex, fieldName, value)
                   }
@@ -64,6 +71,9 @@ export default function ImageUploadModel(props) {
               </div>
             )}
           </div>
+        </div>
+        <div className={styles.model_footer}>
+          <button onClick={handelSubmitIamge}>upload image</button>
         </div>
       </div>
     </div>

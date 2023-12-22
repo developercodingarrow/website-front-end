@@ -1,23 +1,23 @@
 import React from "react";
 import styles from "./css/imageDetails.module.css";
-import { imgesDetails } from "../../JsonData/imageUploadsFileds";
+import { imgesDetailsFileds } from "../../JsonData/imageUploadsFileds";
 
 export default function ImageDetails(props) {
-  const { imageDetails, updateImageDetails, removeImage } = props;
+  const { imageInfo, updateImageDetails, removeImage } = props;
 
   const handleInputChange = (fieldName, e) => {
     updateImageDetails(fieldName, e.target.value);
   };
   return (
     <div className={styles.imageDetails}>
-      {imgesDetails.map((detail) => (
+      {imgesDetailsFileds.map((detail) => (
         <div key={detail.id}>
           <label>{detail.label}</label>
           <input
             type={detail.type}
             name={detail.name}
             placeholder={detail.placeholder}
-            value={imageDetails?.[detail.name] || ""}
+            value={imageInfo?.[detail.name] || ""}
             onChange={(e) => handleInputChange(detail.name, e)}
           />
         </div>

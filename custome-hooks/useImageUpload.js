@@ -4,6 +4,8 @@ import { useState } from "react";
 const useImageUpload = (uploadHandler, initialImage = null, itemId = null) => {
   const [image, setImage] = useState(null);
 
+  console.log(image);
+
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     const reader = new FileReader();

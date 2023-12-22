@@ -3,7 +3,7 @@ import styles from "./css/imageUploadPart.module.css";
 import ImageUploadBtn from "./ImageUploadBtn";
 import ImageUploadModel from "./ImageUploadModel";
 import { useImageUploadModel } from "../../custome-hooks/useImageUploadModel";
-
+import { handelUplaodGallery } from "../Cards/formCards/ImageHandeler";
 export default function UploadImageSection(props) {
   const { title } = props;
   const { isModalOpen, openModal, closeModal } = useImageUploadModel();
@@ -22,6 +22,7 @@ export default function UploadImageSection(props) {
               isOpen={isModalOpen}
               closeModal={closeModal}
               numberOfImages={5}
+              handelSubmitData={handelUplaodGallery}
             />
           </div>
         </div>

@@ -1,4 +1,4 @@
-export const imgesDetails = [
+export const imgesDetailsFileds = [
   {
     id: 1,
     name: "altText",
