@@ -9,7 +9,8 @@ import {
   BusinessDetails,
   BusinessDetailsApi,
 } from "../../../JsonData/ProfileFileds";
-import ImageUplaodCard from "../../../Utils/Cards/formCards/ImageUplaodCard";
+import UploadImageSection from "../../../Utils/imageUpload/UploadImageSection";
+
 export default function TestComponent() {
   const handelUserDetails = (data) => {
     alert(JSON.stringify(data));
@@ -24,7 +25,7 @@ export default function TestComponent() {
           <div className={styles.left_side}>
             <div>
               <TestFormCard
-                title="USER DETAILS"
+                title="TEST INPUT"
                 customeInputs={userDetails}
                 apiData={userDetailApi}
                 actionType="submit"
@@ -34,7 +35,7 @@ export default function TestComponent() {
 
             <div>
               <TestFormCard
-                title="USER LOGIN DETAILS"
+                title="TEST DISABLE INPUTS"
                 customeInputs={CreditaionDetails}
                 apiData={CreditaionDetailsApi}
                 actionType="link"
@@ -44,7 +45,7 @@ export default function TestComponent() {
           <div className={styles.Right_side}>
             <div>
               <TestFormCard
-                title="Business DETAILS"
+                title="TEST FORMS INPUT ELEMENST"
                 customeInputs={BusinessDetails}
                 apiData={BusinessDetailsApi}
                 actionType="submit"
@@ -52,7 +53,7 @@ export default function TestComponent() {
               />
             </div>
             <div>
-              <ImageUplaodCard title="Upload Image" />
+              <UploadImageSection title="TEST Image Uplaod Model" />
             </div>
           </div>
         </div>

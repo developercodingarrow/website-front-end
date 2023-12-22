@@ -3,24 +3,12 @@ import styles from "./css/formCard.module.css";
 import ImageInput from "../../input/ImageInput";
 import useImageUpload from "../../../custome-hooks/useImageUpload";
 import Image from "next/image";
-import { uploadLogo } from "../../../Actions/companyAction";
+import { handelUplaodLogo } from "./ImageHandeler";
 
 export default function ImageUplaodCard(props) {
   const { title, handelfomSubmit } = props;
-
-  const handelUplaodImage = async (imageDta, id) => {
-    try {
-      const formData = new FormData();
-      formData.append("logo", imageDta);
-      const result = await uploadLogo(formData);
-      console.log(result);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   const { image, handleImageChange, UploadImage } =
-    useImageUpload(handelUplaodImage);
+    useImageUpload(handelUplaodLogo);
 
   return (
     <>

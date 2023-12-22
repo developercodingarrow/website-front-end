@@ -9,6 +9,7 @@ import {
   BusinessDetails,
   BusinessDetailsApi,
 } from "../../../JsonData/ProfileFileds";
+import ImageUplaodCard from "../../../Utils/Cards/formCards/ImageUplaodCard";
 export default function ProfileComponent() {
   return (
     <>
@@ -41,6 +42,9 @@ export default function ProfileComponent() {
                 apiData={BusinessDetailsApi}
                 actionType="submit"
               />
+            </div>
+            <div>
+              <ImageUplaodCard title="Upload Image" />
             </div>
           </div>
         </div>
