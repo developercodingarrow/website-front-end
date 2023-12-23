@@ -6,7 +6,12 @@ export default function ImageInput(props) {
     <>
       <div>
         <p style={{ color: "red", fontSize: "12px" }}>Upload image</p>
-        <input type="file" onChange={imageChangeHandel} />
+        <input
+          type="file"
+          onChange={imageChangeHandel}
+          accept="image/*"
+          multiple
+        />
       </div>
     </>
   );

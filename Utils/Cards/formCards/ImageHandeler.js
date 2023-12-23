@@ -11,8 +11,15 @@ export const handelUplaodLogo = async (imageDta, id) => {
   }
 };
 
-export const handelUplaodGallery = async (formData) => {
+export const handelUplaodGallery = async (imageDataArray, imageFor) => {
   try {
+    const formData = new FormData();
+
+    imageDataArray.forEach((imageData, index) => {
+      // const { image } = imageData;
+      formData.append(`${imageFor}`, imageData);
+    });
+    formData.append(`altText`, "this-is from website");
     const result = await uploadGallery(formData);
     console.log(result);
   } catch (error) {

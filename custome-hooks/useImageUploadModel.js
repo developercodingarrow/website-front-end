@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { imgesDetailsFileds } from "../JsonData/imageUploadsFileds";
 
-export function useImageUploadModel(filedName = "") {
+export function useImageUploadModel(filedName = "", numberOfImages) {
   const [uploadedImages, setUploadedImages] = useState([]);
+  const [imagePrivew, setimagePrivew] = useState([]);
   const [imageInfo, setimageInfo] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formDataArray, setFormDataArray] = useState([]);
+  const infoNameFiled = imgesDetailsFileds.map((field) => field.name);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -15,25 +17,16 @@ export function useImageUploadModel(filedName = "") {
     setIsModalOpen(false);
   };
 
-  const handelImageSelect = (files) => {
-    if (files.length === 0) {
+  const handelImageSelect = (e) => {
+    const selectedImages = Array.from(e.target.files);
+    if (selectedImages.length + uploadedImages.length > numberOfImages) {
+      alert(`You can upload maximum ${numberOfImages} images.`);
       return;
     }
+    setUploadedImages([...uploadedImages, ...selectedImages]);
 
-    const file = files[0];
-
-    if (!file.type.startsWith("image/")) {
-      return;
-    }
-
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      setUploadedImages([...uploadedImages, event.target.result]);
-      setimageInfo([...imageInfo, {}]);
-    };
-    reader.readAsDataURL(file);
-    const newFormData = createFormData();
-    setFormDataArray([...formDataArray, newFormData]);
+    const previews = selectedImages.map((image) => URL.createObjectURL(image));
+    setimagePrivew([...imagePrivew, ...previews]);
   };
 
   const removeImage = (index) => {
@@ -74,8 +67,12 @@ export function useImageUploadModel(filedName = "") {
     return formDataArray;
   };
 
+  console.log(uploadedImages);
+  console.log(imageInfo);
+  console.log(formDataArray);
   return {
     uploadedImages,
+    imagePrivew,
     imageInfo,
     handelImageSelect,
     removeImage,
@@ -86,3 +83,18 @@ export function useImageUploadModel(filedName = "") {
     formDataArray,
   };
 }
+
+// const handelImageSelect = (files) => {
+//   // If there is no file select then exit the funtion
+//   if (files.length === 0 || !files[0].type.startsWith("image/")) {
+//     return;
+//   }
+//   const reader = new FileReader();
+//   reader.onload = (event) => {
+//     setUploadedImages([...uploadedImages, event.target.result]);
+//     setimageInfo([...imageInfo, ...infoNameFiled]);
+//   };
+//   reader.readAsDataURL(files[0]);
+//   const newFormData = createFormData();
+//   setFormDataArray([...formDataArray, newFormData]);
+// };

@@ -23,6 +23,7 @@ export default function UploadImageSection(props) {
               closeModal={closeModal}
               numberOfImages={5}
               handelSubmitData={handelUplaodGallery}
+              imageFor="galleryPhotos"
             />
           </div>
         </div>

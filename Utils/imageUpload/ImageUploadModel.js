@@ -4,31 +4,31 @@ import Image from "next/image";
 import { useImageUploadModel } from "../../custome-hooks/useImageUploadModel";
 import SimpleImagePreview from "./ImagePreviews/SimpleImagePreview";
 import ImageDetails from "./ImageDetails";
-import { handelUplaodGallery } from "../Cards/formCards/ImageHandeler";
 
 export default function ImageUploadModel(props) {
-  const { isOpen, closeModal } = props;
+  const { isOpen, closeModal, handelSubmitData, numberOfImages, imageFor } =
+    props;
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
   const {
     uploadedImages,
+    imagePrivew,
     imageInfo,
     handelImageSelect,
     removeImage,
     updateImageDetails,
     formDataArray,
-    handelSubmitData,
-  } = useImageUploadModel("galleryPhotos");
+  } = useImageUploadModel("galleryPhotos", numberOfImages);
 
   const handleImageClick = (index) => {
     setSelectedImageIndex(index);
   };
 
   const handelImageChoose = (e) => {
-    handelImageSelect(e.target.files);
+    handelImageSelect(e);
   };
 
   const handelSubmitIamge = async () => {
-    await handelSubmitData(formDataArray);
+    await handelSubmitData(uploadedImages, imageFor);
   };
 
   return (
@@ -41,16 +41,11 @@ export default function ImageUploadModel(props) {
           <div className={styles.uplaod_imageSide}>
             <div className={styles.image_upoaldBtnPart}>
               <h2>Upload Image</h2>
-              {[...Array(props.numberOfImages)].map((_, index) => (
-                <div key={index} className={styles.imageInput}>
-                  <label>Image {index + 1}:</label>
-                  <input type="file" onChange={handelImageChoose} />
-                </div>
-              ))}
+              <input type="file" onChange={handelImageChoose} />
             </div>
             <div className={styles.imagePriew_container}>
               <SimpleImagePreview
-                uploadedImages={uploadedImages}
+                uploadedImages={imagePrivew}
                 onImageClick={handleImageClick}
               />
             </div>

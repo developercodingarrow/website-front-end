@@ -61,5 +61,3 @@ export const ImageAPIAction = async (
     return error.response;
   }
 };
-
-
