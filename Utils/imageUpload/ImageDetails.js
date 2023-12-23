@@ -11,7 +11,7 @@ export default function ImageDetails(props) {
 
   return (
     <div className={styles.imageDetails}>
-      {imgesDetailsFileds.map((detail) => (
+      {imgesDetailsFileds.map((detail, index) => (
         <div key={detail.id}>
           <label>{detail.label}</label>
           <input
@@ -23,7 +23,6 @@ export default function ImageDetails(props) {
           />
         </div>
       ))}
-      <button>Remove</button>
     </div>
   );
 }

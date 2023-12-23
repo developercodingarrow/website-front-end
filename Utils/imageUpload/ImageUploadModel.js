@@ -6,7 +6,7 @@ import SimpleImagePreview from "./ImagePreviews/SimpleImagePreview";
 import ImageDetails from "./ImageDetails";
 
 export default function ImageUploadModel(props) {
-  const { isOpen, closeModal, handelSubmitData, numberOfImages, imageFor } =
+  const { isOpen, closeModal, handelSubmitData, numberOfImages, imageFor, id } =
     props;
 
   const {
@@ -15,6 +15,7 @@ export default function ImageUploadModel(props) {
     handelImageSelect,
     updateImageDetails,
     imageInfo,
+    removeImage,
   } = useImageUploadModel("galleryPhotos", numberOfImages);
 
   const handelImageChoose = (e) => {
@@ -22,7 +23,11 @@ export default function ImageUploadModel(props) {
   };
 
   const handelSubmitIamge = async () => {
-    await handelSubmitData(uploadedImages, imageInfo, imageFor);
+    if (id) {
+      await handelSubmitData(uploadedImages, imageInfo, imageFor, id);
+    } else {
+      await handelSubmitData(uploadedImages, imageInfo, imageFor);
+    }
   };
 
   return (
@@ -38,7 +43,10 @@ export default function ImageUploadModel(props) {
               <input type="file" onChange={handelImageChoose} />
             </div>
             <div className={styles.imagePriew_container}>
-              <SimpleImagePreview uploadedImages={imagePrivew} />
+              <SimpleImagePreview
+                uploadedImages={imagePrivew}
+                handelRemove={removeImage}
+              />
             </div>
           </div>
           <div className={styles.image_inputSide}>

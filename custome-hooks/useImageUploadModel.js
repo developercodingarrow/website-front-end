@@ -36,7 +36,15 @@ export function useImageUploadModel(filedName = "", numberOfImages) {
     setimagePrivew([...imagePrivew, ...previews]);
   };
 
-  console.log(imageInfo);
+  const removeImage = (index) => {
+    console.log(index);
+    const updatedImages = [...uploadedImages];
+    const previewImage = [...imagePrivew];
+    updatedImages.splice(index, 1);
+    previewImage.splice(index, 1);
+    setUploadedImages(updatedImages);
+    setimagePrivew(previewImage);
+  };
 
   return {
     uploadedImages,
@@ -47,5 +55,6 @@ export function useImageUploadModel(filedName = "", numberOfImages) {
     closeModal,
     imageInfo,
     updateImageDetails,
+    removeImage,
   };
 }

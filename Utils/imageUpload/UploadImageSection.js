@@ -24,6 +24,7 @@ export default function UploadImageSection(props) {
               numberOfImages={5}
               handelSubmitData={handelUplaodGallery}
               imageFor="galleryPhotos"
+              
             />
           </div>
         </div>
