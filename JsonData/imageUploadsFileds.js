@@ -5,8 +5,13 @@ export const imgesDetailsFileds = [
     type: "text",
     placeholder: "alt Text",
     label: "alt TEXT",
-    validation: {
-      required: "alt Text is required.",
-    },
+  },
+
+  {
+    id: 2,
+    name: "descreption",
+    type: "text",
+    placeholder: "image Descreption",
+    label: "Image Descreption",
   },
 ];

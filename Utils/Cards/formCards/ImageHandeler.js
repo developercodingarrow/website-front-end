@@ -11,15 +11,24 @@ export const handelUplaodLogo = async (imageDta, id) => {
   }
 };
 
-export const handelUplaodGallery = async (imageDataArray, imageFor) => {
+export const handelUplaodGallery = async (
+  imageDataArray,
+  imageDetails,
+  imageFor
+) => {
   try {
+    console.log(imageDetails);
     const formData = new FormData();
 
     imageDataArray.forEach((imageData, index) => {
-      // const { image } = imageData;
       formData.append(`${imageFor}`, imageData);
     });
-    formData.append(`altText`, "this-is from website");
+    // Assuming imageDetails is an object with key-value pairs
+    for (const key in imageDetails) {
+      if (Object.hasOwnProperty.call(imageDetails, key)) {
+        formData.append(key, imageDetails[key]);
+      }
+    }
     const result = await uploadGallery(formData);
     console.log(result);
   } catch (error) {

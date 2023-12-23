@@ -3,11 +3,12 @@ import styles from "./css/imageDetails.module.css";
 import { imgesDetailsFileds } from "../../JsonData/imageUploadsFileds";
 
 export default function ImageDetails(props) {
-  const { imageInfo, updateImageDetails, removeImage } = props;
+  const { handelImageDetails, imageState } = props;
 
   const handleInputChange = (fieldName, e) => {
-    updateImageDetails(fieldName, e.target.value);
+    handelImageDetails(fieldName, e.target.value);
   };
+
   return (
     <div className={styles.imageDetails}>
       {imgesDetailsFileds.map((detail) => (
@@ -17,12 +18,12 @@ export default function ImageDetails(props) {
             type={detail.type}
             name={detail.name}
             placeholder={detail.placeholder}
-            value={imageInfo?.[detail.name] || ""}
+            value={imageState[detail.name]}
             onChange={(e) => handleInputChange(detail.name, e)}
           />
         </div>
       ))}
-      <button onClick={removeImage}>Remove</button>
+      <button>Remove</button>
     </div>
   );
 }

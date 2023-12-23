@@ -8,27 +8,21 @@ import ImageDetails from "./ImageDetails";
 export default function ImageUploadModel(props) {
   const { isOpen, closeModal, handelSubmitData, numberOfImages, imageFor } =
     props;
-  const [selectedImageIndex, setSelectedImageIndex] = useState(null);
+
   const {
     uploadedImages,
     imagePrivew,
-    imageInfo,
     handelImageSelect,
-    removeImage,
     updateImageDetails,
-    formDataArray,
+    imageInfo,
   } = useImageUploadModel("galleryPhotos", numberOfImages);
-
-  const handleImageClick = (index) => {
-    setSelectedImageIndex(index);
-  };
 
   const handelImageChoose = (e) => {
     handelImageSelect(e);
   };
 
   const handelSubmitIamge = async () => {
-    await handelSubmitData(uploadedImages, imageFor);
+    await handelSubmitData(uploadedImages, imageInfo, imageFor);
   };
 
   return (
@@ -44,27 +38,16 @@ export default function ImageUploadModel(props) {
               <input type="file" onChange={handelImageChoose} />
             </div>
             <div className={styles.imagePriew_container}>
-              <SimpleImagePreview
-                uploadedImages={imagePrivew}
-                onImageClick={handleImageClick}
-              />
+              <SimpleImagePreview uploadedImages={imagePrivew} />
             </div>
           </div>
           <div className={styles.image_inputSide}>
-            {selectedImageIndex !== null && (
-              <div className={styles.imageDetailsWrapper}>
-                <ImageDetails
-                  imageInfo={imageInfo[selectedImageIndex]}
-                  updateImageDetails={(fieldName, value) =>
-                    updateImageDetails(selectedImageIndex, fieldName, value)
-                  }
-                  removeImage={() => {
-                    removeImage(selectedImageIndex);
-                    setSelectedImageIndex(null);
-                  }}
-                />
-              </div>
-            )}
+            <div className={styles.imageDetailsWrapper}>
+              <ImageDetails
+                handelImageDetails={updateImageDetails}
+                imageState={imageInfo}
+              />
+            </div>
           </div>
         </div>
         <div className={styles.model_footer}>
