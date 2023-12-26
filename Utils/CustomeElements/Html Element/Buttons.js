@@ -2,7 +2,7 @@ import React from "react";
 import styles from "../css/buttons.module.css";
 
 export default function Buttons(props) {
-  const { text, buttonstyle, btnColor, btnSze, btnAction , type} = props;
+  const { text, buttonstyle, btnColor, btnSze, btnAction, type } = props;
 
   const buttonClasses = `${styles[buttonstyle]} ${styles[btnColor]} ${styles[btnSze]}`;
   return (

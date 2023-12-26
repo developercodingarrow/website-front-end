@@ -57,9 +57,9 @@ export const asidebarOptions = [
   },
 
   {
-    name: "Enquires",
+    name: "Test Dynimic Form Filed",
     iconComponent: AiOutlineDashboard, // Use the imported component
-    link: "/user-dashboard",
+    link: "/super-admin/form-fileds",
   },
 ];
 

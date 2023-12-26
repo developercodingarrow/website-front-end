@@ -1,6 +1,6 @@
 .largebtn {
   border: none;
-  background: #1a79ff;
+  background: var(--ts-primary);
   color: #fff;
   text-transform: uppercase;
   padding: 10px 40px;
@@ -11,7 +11,7 @@
 
 .smallbtn {
   border: none;
-  background: #1a79ff;
+  background: var(--ts-primary);
   color: #fff;
   text-transform: uppercase;
   padding: 5px 20px;
@@ -38,7 +38,7 @@
 }
 
 .primaryBtnColor {
-  background-color: #3b82f6;
+  background-color: var(--ts-primary);
 }
 
 .seconderyBtnColor {
