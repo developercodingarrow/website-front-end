@@ -10,7 +10,6 @@ export default function InputSecond(props) {
     inputLabel,
     lableStyle,
     readOnlyMode = false,
-
     ...inputProps
   } = props;
 

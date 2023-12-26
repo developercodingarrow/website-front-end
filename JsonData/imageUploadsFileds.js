@@ -4,7 +4,7 @@ export const imgesDetailsFileds = [
     name: "altText",
     type: "text",
     placeholder: "alt Text",
-    label: "alt TEXT",
+    // label: "alt TEXT",
   },
 
   {
@@ -12,6 +12,6 @@ export const imgesDetailsFileds = [
     name: "descreption",
     type: "text",
     placeholder: "image Descreption",
-    label: "Image Descreption",
+    // label: "Image Descreption",
   },
 ];

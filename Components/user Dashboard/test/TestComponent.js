@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "../ProfileUpdate/css/profile.module.css";
 import TestFormCard from "../../../Utils/Cards/formCards/TestFormCard";
 import {
@@ -10,6 +10,9 @@ import {
   BusinessDetailsApi,
 } from "../../../JsonData/ProfileFileds";
 import UploadImageSection from "../../../Utils/imageUpload/UploadImageSection";
+import { useImageUploadModel } from "../../../custome-hooks/useImageUploadModel";
+import { CustomeContext } from "../../../Context Api/CustimeContextApi";
+import { handelgetSingleLogo } from "../../../Utils/imageUpload/ImageUplaodHandler";
 
 export default function TestComponent() {
   const handelUserDetails = (data) => {
@@ -17,6 +20,27 @@ export default function TestComponent() {
     console.log(data.image);
     console.log(data.textInput);
   };
+  const { dataBaseImages, setdataBaseImages, loading, setloading } =
+    useContext(CustomeContext);
+  const { isModalOpen } = useImageUploadModel();
+  const _id = "6584058de8a345aa157d21f2";
+
+  useEffect(() => {
+    console.log("run usEffect");
+    const fetchData = async () => {
+      try {
+        const respose = await handelgetSingleLogo(_id);
+        if (respose) {
+          console.log(respose.data.result.galleryPhotos);
+          setdataBaseImages(respose.data.result.galleryPhotos);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, [loading]);
 
   return (
     <>

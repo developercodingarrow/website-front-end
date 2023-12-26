@@ -61,3 +61,22 @@ export const ImageAPIAction = async (
     return error.response;
   }
 };
+
+export const performGetAPIAction = async (url, token = null) => {
+  const headers = {
+    "Content-Type": "application/json; charset=utf-8",
+    Accept: "application/json",
+  };
+
+  if (token) {
+    headers.Authorization = `Bearer ${token}`;
+  }
+
+  try {
+    const response = await axios.get(url, { headers });
+    return response;
+  } catch (error) {
+    console.log(error.response);
+    return error.response;
+  }
+};

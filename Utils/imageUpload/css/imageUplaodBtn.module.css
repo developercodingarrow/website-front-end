@@ -1,0 +1,18 @@
+/* imageUploadBtn.module.css */
+
+/* Button styles */
+.uploadButton {
+  background-color: var(--ts-primary);
+  color: var(--ts-white);
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Icon styles */
+.icon {
+  margin-right: 8px;
+}

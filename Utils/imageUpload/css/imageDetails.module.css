@@ -1,0 +1,45 @@
+.imageDetails_container {
+  padding: 10px;
+}
+
+.block_type {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.lable_Box {
+  margin: 0px;
+}
+
+.lable_style {
+  color: var(--ts-gray);
+  font-size: 14px;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 400;
+}
+
+.inputDesign {
+  font-size: 14px;
+  width: 100%;
+  height: auto;
+  min-height: var(--ts-gap-20);
+  box-shadow: initial !important;
+  border-radius: 10px;
+  transition: border-color 0.15s ease-in-out;
+  outline: none;
+  display: block;
+  width: 100%;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--ts-text-color);
+  background-color: #fff;
+  border: var(--ts-1px-border);
+  appearance: none;
+  border-radius: var(--ts-10-border-radius);
+  outline: none;
+}
+
+.input_Padding {
+  padding: 6px 12px;
+}

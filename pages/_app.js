@@ -5,6 +5,7 @@ import UserDashBoardContextApi from "../Context Api/UserDashBoardContextApi";
 import TestContextAppiProvide from "../Context Api/TestContextAppi";
 import AuthContextApiProvider from "../Context Api/AuthContextApi";
 import FillterContextAppiProvide from "../Context Api/FillterContext";
+import CustimeContextProvider from "../Context Api/CustimeContextApi";
 
 export default function App({ Component, pageProps }) {
   return (
@@ -15,7 +16,9 @@ export default function App({ Component, pageProps }) {
             <TestContextAppiProvide>
               <AuthContextApiProvider>
                 <FillterContextAppiProvide>
-                  <Component {...pageProps} />
+                  <CustimeContextProvider>
+                    <Component {...pageProps} />
+                  </CustimeContextProvider>
                 </FillterContextAppiProvide>
               </AuthContextApiProvider>
             </TestContextAppiProvide>

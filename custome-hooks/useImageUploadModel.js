@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { imgesDetailsFileds } from "../JsonData/imageUploadsFileds";
+import { getSingleLogo } from "../Actions/companyAction";
 
 export function useImageUploadModel(filedName = "", numberOfImages) {
+  console.log("run useImageUplaod");
   const [uploadedImages, setUploadedImages] = useState([]);
   const [imagePrivew, setimagePrivew] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
