@@ -17,7 +17,6 @@ export default function FormFieldComponent() {
       setlaoding(true);
       const data = { name: name };
       const response = await craeteNewForm(data);
-      console.log(response);
       setlaoding(false);
     } catch (error) {
       console.log(error);
@@ -32,7 +31,6 @@ export default function FormFieldComponent() {
   const handelgetdata = async () => {
     try {
       const response = await getFormFileds();
-      console.log(response.data.result);
       setformfieldList(response.data.result);
     } catch (error) {
       console.log(error);

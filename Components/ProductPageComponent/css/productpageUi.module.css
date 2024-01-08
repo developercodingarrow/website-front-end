@@ -1,0 +1,20 @@
+.main_container {
+  display: flex;
+  column-gap: 20px;
+  row-gap: 20px;
+  height: 100vh;
+}
+
+.sideBar_container {
+  width: 20%;
+  border: 1px solid gray;
+}
+
+.chip_wrapperContainer {
+  border: 1px solid red;
+}
+
+.card_container {
+  border: 1px solid black;
+  flex-grow: 1;
+}

@@ -22,3 +22,8 @@ export const addformFiled = async (filedData, slug) => {
   const method = "patch";
   return performAPIAction(method, url, filedData);
 };
+
+export const getSingleFormFileds = async (slug) => {
+  const url = `http://localhost:8000/api/v1/first-website/form-field/get-single-form/${slug}`;
+  return performGetAPIAction(url);
+};

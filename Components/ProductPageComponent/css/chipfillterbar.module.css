@@ -1,0 +1,5 @@
+.wrapper {
+  border: 1px solid blue;
+  display: flex !important;
+  width: 100%;
+}
