@@ -15,6 +15,7 @@ export default function useDataFillter(uiStyle) {
               key={input._id}
               label={input.label}
               options={input.options}
+              placeholder={input.placeholder}
             />
           );
         } else if (uiStyle === "simple") {
@@ -23,6 +24,7 @@ export default function useDataFillter(uiStyle) {
               key={input._id}
               label={input.label}
               options={input.options}
+              placeholder={input.placeholder}
             />
           );
         }

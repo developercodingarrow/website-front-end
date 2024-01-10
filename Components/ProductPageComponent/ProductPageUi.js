@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { getSingleFormFileds } from "../../Actions/formFiledAction";
 import styles from "./css/productpageUi.module.css";
 import ProductSidebar from "./ProductSidebar";
 import ProductCards from "./ProductCards";
 import ChipFilterBar from "./ChipFilterBar";
+import { projectContext } from "../../Context Api/ProjectContextApi";
 
 export default function ProductPageUi() {
+  const { projectByCategories, setprojectByCategories } =
+    useContext(projectContext);
   const router = useRouter();
   const { category } = router.query;
   const [fields, setfields] = useState([]);
@@ -28,6 +31,8 @@ export default function ProductPageUi() {
     }
   };
 
+  console.log(fields);
+
   return (
     <>
       <div className={styles.main_container}>
@@ -38,8 +43,10 @@ export default function ProductPageUi() {
           <div className={styles.chip_wrapperContainer}>
             <ChipFilterBar fields={fields} />
           </div>
-          <div>
-            <ProductCards />
+          <div className={styles.card_wrapper}>
+            {projectByCategories.map((data, i) => {
+              return <ProductCards data={data} key={i} buttonText="Details" />;
+            })}
           </div>
         </div>
       </div>
